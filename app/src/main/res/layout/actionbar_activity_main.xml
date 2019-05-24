@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/supportToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/actionbar_height"
+            android:background="@color/primary"
+            android:elevation="0dp"
+            android:layoutDirection="rtl"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_height">
+
+                <ImageView
+                    android:id="@+id/btnRightTool"
+                    android:layout_width="@dimen/medium_size"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"
+                    android:layout_marginRight="@dimen/small_margin"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/btn_simple"
+                    android:tint="@color/app"
+                    app:srcCompat="@drawable/ic_menu"/>
+
+                <ImageView
+                    android:id="@+id/btnLeftTool"
+                    android:layout_width="@dimen/actionbar_icon_width"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/btn_simple"
+                    android:scaleType="center"
+                    android:tint="@color/gray_text"/>
+
+                <LinearLayout
+                    android:id="@+id/txtLinear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/btn_simple_round"
+                    android:gravity="center_vertical"
+                    android:layoutDirection="ltr"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/small_margin"
+                    android:paddingRight="@dimen/small_margin">
+
+                    <ImageView
+                        android:id="@+id/imgArrow"
+                        android:layout_width="@dimen/small_margin"
+                        android:layout_height="@dimen/small_margin"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/txtWallet"
+                        android:scaleType="fitCenter"
+                        android:tint="@color/gray_text"/>
+
+                    <TextView
+                        android:id="@+id/txtTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:gravity="right|center_vertical"
+                        android:paddingLeft="@dimen/small_margin"
+                        android:paddingRight="@dimen/small_margin"
+                        android:text="@string/app_name"
+                        android:textColor="@color/nav_item_text"
+                        android:textSize="@dimen/h3_font_size"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+</android.support.design.widget.CoordinatorLayout>

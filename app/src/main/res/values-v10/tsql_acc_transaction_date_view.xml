@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+     <string name="sql_AccTransaction_SelectByDateMasterView">
+        Select * from (
+            SELECT
+            RegFaDate ,
+            Sum(
+                CASE  WHEN  Tag like exclude Or Tag like bankBalance Or AccountId = \'sms_transaction\' Or AccountId = \'bank_transaction\' THEN
+                    0
+                ELSE
+                    Amount
+                END
+            ) as Amount
+            FROM AccTransaction
+            Where 1 = 1
+    </string>
+
+    <string name="sql_AccTransaction_SelectByDateMasterView_Part2">
+        Group By RegFaDate
+        ) as t1
+        Order By RegFaDate DESC ;
+    </string>
+
+
+    <string name="sql_AccTransaction_SelectByDateMasterView_MonthMode">
+        Select RegFaDate || \'01\' as RegFaDate , Amount from ( SELECT
+         substr(RegFaDate ,1  ,8) as RegFaDate,
+           Sum(
+                CASE  WHEN  Tag like exclude Or AccountId = \'sms_transaction\' Or AccountId = \'bank_transaction\' THEN
+                    0
+                ELSE
+                    Amount
+                END
+            ) as Amount
+        FROM AccTransaction
+        Where 1 = 1
+    </string>
+
+    <string name="sql_AccTransaction_SelectByDateMasterView_MonthMode_Part2">
+        Group By substr(RegFaDate ,1  ,8)
+        ) as t1
+        Order By RegFaDate DESC ;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_SelectByDateDetailView">
+        Select * from ( SELECT
+            AccountId ,
+            AccountGroupId ,
+            GeneralReferenceId ,
+            RegFaDate ,
+            Sum(Amount) as Amount
+        FROM AccTransaction
+        Where 1=1
+    </string>
+
+    <string name="sql_AccTransaction_SelectByDateDetailView_Part2">
+        Group By AccountId , RegFaDate
+        ) as t1
+        Order By RegFaDate DESC ;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_SelectByDateDetailView_MonthMode">
+        Select AccountId ,RegFaDate || \'01\' as RegFaDate , Amount from
+        ( SELECT
+            AccountId ,
+            AccountGroupId ,
+            GeneralReferenceId ,
+            substr(RegFaDate ,1  ,8) as RegFaDate,
+            Sum(Amount) as Amount
+        FROM AccTransaction
+        Where 1=1
+    </string>
+
+    <string name="sql_AccTransaction_SelectByDateDetailView_MonthMode_Part2">
+        Group By AccountId , substr(RegFaDate ,1  ,8)
+        ) as t1
+        Order By RegFaDate DESC ;
+    </string>
+
+
+</resources>

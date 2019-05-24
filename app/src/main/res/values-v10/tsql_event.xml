@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Event_Insert">
+        INSERT INTO Event (EventId, EventName, ImageId  , EventEndDate , IsFinished, WalletId
+        ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , Tag , RevId)
+        VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?  );
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Event_Update">
+        UPDATE Event SET EventName = ? , ImageId = ?, EventEndDate = ? , IsFinished = ?,   WalletId = ?
+        , CreatedAt = ? , UpdatedAt = ? ,  Editor  = ? , EditorDeviceId= ? , Tag =  ? , RevId = ?
+        WHERE EventId = ?;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Event_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Event ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Event_SelectAll_By_WalletId">
+        SELECT
+            *
+        FROM Event
+        Where WalletId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Event_SelectFinished_By_WalletId">
+        SELECT
+            *
+        FROM Event
+        Where WalletId = ? And ( EventEndDate &lt; ? Or IsFinished = 1 );
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Event_SelectUnFinished_By_WalletId">
+        SELECT
+            *
+        FROM Event
+        Where WalletId = ? And ( EventEndDate &gt;= ? And IsFinished = 0 );
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Event_SelectAll">
+        SELECT
+            *
+        FROM Event ;
+
+    </string>
+
+
+
+    <!--language=SQLite-->
+    <string name="sql_Event_SelectByEventID">
+        SELECT
+            *
+        FROM Event
+        Where EventId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Event_DeleteAll">
+        DELETE FROM Event;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Event_DeleteById">
+        DELETE FROM Event Where EventId = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Event_DropTable">
+        DROP TABLE IF EXISTS Event;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Event_CreateTable">
+        CREATE TABLE IF NOT EXISTS Event (
+            EventId   TEXT PRIMARY KEY,
+            EventName TEXT,
+            ImageId  TEXT ,
+            EventEndDate INTEGER,
+            IsFinished INTEGER,
+            WalletId TEXT,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            Tag TEXT,
+            RevId TEXT
+
+        );
+    </string>
+</resources>

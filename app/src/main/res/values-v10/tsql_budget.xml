@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Budget_Insert">
+        INSERT INTO Budget (BudgetId,  AccountId , AccountName
+        , AccountImageId , AccountGroupId , BudgetStartDate , BudgetEndDate
+        , BudgetAmount , WalletId
+        ,CreatedAt , UpdatedAt , Editor , EditorDeviceId , Tag , RevId)
+        VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?, ?, ? , ?, ? );
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Budget_Update">
+        UPDATE Budget SET  AccountId = ? , AccountName = ?
+        , AccountImageId = ? , AccountGroupId = ? , BudgetStartDate = ? , BudgetEndDate = ? , BudgetAmount = ?,   WalletId = ?
+        , CreatedAt = ? , UpdatedAt = ? , Editor  = ? , EditorDeviceId= ? , Tag =  ? , RevId = ?
+        WHERE BudgetId = ?;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Budget_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Budget
+        Where 1=1
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Budget_SelectAll_By_WalletId">
+        SELECT
+            *
+        FROM Budget
+        Where WalletId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Budget_SelectFinished_By_WalletId">
+        SELECT
+            *
+        FROM Budget
+        Where WalletId = ? And ( BudgetEndDate &lt; ?  )
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Budget_SelectUnFinished_By_WalletId">
+        SELECT
+            *
+        FROM Budget
+        Where WalletId = ? And ( BudgetEndDate &gt;= ? )
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Budget_SelectAll">
+        SELECT
+            *
+        FROM Budget
+        Where 1 = 1
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Budget_SelectByBudgetID">
+        SELECT
+            *
+        FROM Budget
+        Where BudgetId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Budget_DeleteAll">
+        DELETE FROM Budget;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Budget_DeleteById">
+        DELETE FROM Budget Where BudgetId = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Budget_DropTable">
+        DROP TABLE IF EXISTS Budget;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Budget_CreateTable">
+        CREATE TABLE IF NOT EXISTS Budget (
+            BudgetId   TEXT PRIMARY KEY,
+            AccountId TEXT,
+            AccountName Text,
+            AccountImageId Text,
+            AccountGroupId Integer,
+            BudgetStartDate INTEGER,
+            BudgetEndDate INTEGER,
+            BudgetAmount INTEGER,
+            WalletId TEXT,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            Tag TEXT,
+            RevId TEXT
+
+        );
+    </string>
+</resources>

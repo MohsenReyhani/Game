@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Variable_Insert">
+        INSERT INTO AppVariable (AppVariableId, Value , DomainId)
+        VALUES ( ? , ? , ? );
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Variable_Update">
+        UPDATE AppVariable SET Value = ?
+        WHERE AppVariableId = ? and DomainId = ?;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_App_Variable_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM AppVariable ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Variable_CountItems_By_DomainId">
+        SELECT
+        Count(*) as CountItems
+        FROM AppVariable ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Variable_SelectAll">
+        SELECT
+            *
+        FROM AppVariable ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Variable_SelectByAppVariableID">
+        SELECT
+            *
+        FROM AppVariable
+        Where AppVariableId = ? And DomainId = ? ;
+
+    </string>
+
+    <string name="sql_App_Variable_SelectByDomain">
+        SELECT
+            *
+        FROM AppVariable
+        Where DomainId = ?
+        Order By AppVariableId Asc;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Variable_SelectAllLikeAppVariableID">
+        SELECT
+            *
+        FROM AppVariable
+        Where AppVariableId Like ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Variable_DropTable">
+        DROP TABLE IF EXISTS AppVariable;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Variable_DeleteAll">
+        DELETE FROM AppVariable;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Variable_DeleteByAppVariableId">
+        DELETE FROM AppVariable Where AppVariableId = ? And DomainId = ? ;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_App_Variable_CreateTable">
+        CREATE TABLE IF NOT EXISTS AppVariable (
+            AppVariableId TEXT,
+            DomainId TEXT,
+            Value TEXT,
+            PRIMARY KEY (AppVariableId, DomainId)
+        );
+    </string>
+
+    <string name="sql_upgrade_global_params">
+        INSERT INTO AppVariable (AppVariableId, Value , DomainId)
+        Select AppVariableId, Value , \'param\' From tmp_AppVariable
+    </string>
+
+
+</resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Project_Insert">
+        INSERT INTO Project (ProjectId, ProjectName, ImageId , WalletId
+         ,CreatedAt , UpdatedAt , Editor , EditorDeviceId , Tag , RevId)
+        VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? );
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Project_Update">
+        UPDATE Project SET ProjectName = ? , ImageId = ? ,   WalletId = ?
+         , CreatedAt = ? , UpdatedAt = ? ,  Editor  = ? , EditorDeviceId= ? , Tag =  ? , RevId = ?
+        WHERE ProjectId = ?;
+    </string>
+
+
+
+    <!--language=SQLite-->
+    <string name="sql_Project_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Project ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Project_SelectAll_By_WalletId">
+        SELECT
+            *
+        FROM Project
+        Where WalletId = ? ;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Project_SelectAll">
+        SELECT
+            *
+        FROM Project ;
+
+    </string>
+
+
+
+
+    <!--language=SQLite-->
+    <string name="sql_Project_SelectByProjectID">
+        SELECT
+            *
+        FROM Project
+        Where ProjectId = ? ;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Project_DeleteAll">
+        DELETE FROM Project ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Project_DeleteById">
+        DELETE FROM Project Where ProjectId = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Project_DropTable">
+        DROP TABLE IF EXISTS Project;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Project_CreateTable">
+        CREATE TABLE IF NOT EXISTS Project (
+            ProjectId   TEXT PRIMARY KEY,
+            ProjectName TEXT,
+            ImageId  TEXT ,
+            WalletId TEXT,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            Tag TEXT,
+            RevId TEXT
+        );
+    </string>
+
+
+    <string name="sql_project_upgrade_ver_10_transfer_to_new_table">
+         INSERT INTO Project (ProjectId, ProjectName , WalletId ,CreatedAt , UpdatedAt , Editor , EditorDeviceId, Tag , RevId)
+         Select ProjectId, ProjectName, WalletId ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId, Tag , RevId From tmp_Project as t
+    </string>
+
+    <string name="sql_project_upgrade_ver_10_transfer_event_to_new_table">
+         INSERT INTO Project (ProjectId, ProjectName , WalletId ,CreatedAt , UpdatedAt , Editor , EditorDeviceId, Tag , RevId)
+         Select replace(EventId, \'acc+Event+\', \'acc+Project+\'), EventName, WalletId ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId, Tag , RevId From Event as t
+    </string>
+
+    <string name="sql_project_upgrade_ver_10_transfer_stuff_to_new_table">
+         INSERT INTO Project (ProjectId, ProjectName , WalletId ,CreatedAt , UpdatedAt , Editor , EditorDeviceId, Tag , RevId)
+         Select replace(StuffId, \'acc+Stuff+\', \'acc+Project+\'), StuffName, WalletId ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId, Tag , RevId From Stuff as t
+    </string>
+
+   
+
+</resources>

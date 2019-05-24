@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/vBoxContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="@dimen/middle_size"
+    android:padding="0dp">
+
+    <LinearLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/frame_rer_lr_filled_green"
+        android:gravity="center_vertical"
+        android:layoutDirection="ltr"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgAddTransaction"
+            android:layout_width="@dimen/middle_size"
+            android:layout_height="@dimen/middle_size"
+            android:layout_marginLeft="@dimen/xsmall_margin"
+            android:background="@drawable/btn_rer_fill_green"
+            android:padding="@dimen/small_margin"
+            android:scaleType="center"/>
+
+        <LinearLayout
+            android:id="@+id/vBox_NameContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/txtWallet"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/small_size"
+                android:gravity="right|center_vertical"
+                android:scaleType="centerInside"/>
+
+            <ImageView
+                android:id="@+id/txtWalletTotalAmount"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/small_size"
+                android:gravity="right|center_vertical"
+                android:scaleType="centerInside"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="@dimen/middle_size"
+            android:layout_height="@dimen/middle_size"
+            android:layout_marginBottom="@dimen/xsmall_margin"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:layout_marginRight="@dimen/small_margin"
+            android:layout_marginTop="@dimen/xsmall_margin"
+            android:background="@drawable/circle_filled_white">
+
+            <ImageView
+                android:id="@+id/imgIcon"
+                android:layout_width="@dimen/middle_size"
+                android:layout_height="@dimen/middle_size"
+                android:layout_gravity="center"
+                android:layerType="software"
+                android:scaleType="centerInside"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/emptyContent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/middle_size"
+        android:layout_gravity="center"
+        android:background="@drawable/frame_rer_lr_filled_green"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imgEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/small_margin"
+            android:scaleType="centerInside"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:padding="@dimen/large_margin">
+
+    <RelativeLayout
+        android:id="@+id/Container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_margin"
+        android:background="@drawable/toast_background"
+        android:padding="@dimen/small_margin">
+
+        <TextView
+            android:id="@+id/txtMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/txtDetailMessage"
+            android:layout_marginBottom="@dimen/xsmall_margin"
+            android:gravity="right|center_vertical"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/h4_font_size"/>
+
+        <TextView
+            android:id="@+id/txtDetailMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtMessage"
+            android:layout_centerHorizontal="true"
+            android:gravity="right|center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/h4_font_size"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

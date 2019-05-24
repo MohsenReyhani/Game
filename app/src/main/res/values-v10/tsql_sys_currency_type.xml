@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Currency_Type_Insert">
+        INSERT INTO CurrencyType (CurrencyTypeId, CurrencyTypeName, CurrencySign , IsAcceptFloat , ImageId , ReferenceName)
+        VALUES ( ? , ? , ? , ? , ?  , ?);
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Currency_Type_Update">
+        UPDATE CurrencyType SET CurrencyTypeName = ? , CurrencySign = ? ,   IsAcceptFloat = ? , ImageId = ? , ReferenceName = ?
+        WHERE CurrencyTypeId = ?;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Currency_Type_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM CurrencyType ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Currency_Type_SelectAll">
+        SELECT
+            *
+        FROM CurrencyType ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Currency_Type_SelectByCurrencyTypeID">
+        SELECT
+            *
+        FROM CurrencyType
+        Where CurrencyTypeId = ? ;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Currency_Type_DropTable">
+        DROP TABLE IF EXISTS CurrencyType;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Currency_Type_DeleteAll">
+        DELETE FROM CurrencyType;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Currency_Type_CreateTable">
+        CREATE TABLE IF NOT EXISTS CurrencyType (
+            CurrencyTypeId   INTEGER PRIMARY KEY,
+            CurrencyTypeName TEXT,
+            CurrencySign  TEXT ,
+            IsAcceptFloat INTEGER ,
+            ImageId TEXT,
+            ReferenceName TEXT
+        );
+    </string>
+</resources>

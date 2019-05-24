@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Wallet_Insert">
+        INSERT INTO Wallet (WalletId, WalletName, ImageId , CurrencyTypeId , WalletType, TravelModeEventId
+        ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , Owner , Participators , Tag , RevId)
+        VALUES ( ? , ? , ? , ?  , ? , ? , ? , ? , ? , ? , ?  , ? , ? , ?) ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Wallet_Update">
+        UPDATE Wallet SET WalletName = ? , ImageId = ? ,   CurrencyTypeId = ? , WalletType = ?   , TravelModeEventId = ?
+        ,  CreatedAt = ? , UpdatedAt = ? ,  Editor  = ? , EditorDeviceId= ? , Owner = ? , Participators = ? , Tag =  ? , RevId = ?
+        WHERE WalletId = ? ;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Wallet_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Wallet ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Wallet_SelectAll">
+        SELECT
+            *
+        FROM Wallet ;
+
+    </string>
+
+
+
+
+
+    <!--language=SQLite-->
+    <string name="sql_Wallet_SelectByWalletID">
+        SELECT
+            *
+        FROM Wallet
+        Where WalletId = ? ;
+
+    </string>
+
+
+
+    <!--language=SQLite-->
+    <string name="sql_Wallet_DropTable">
+        DROP TABLE IF EXISTS Wallet;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Wallet_DeleteAll">
+        DELETE FROM Wallet;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Wallet_DeleteById">
+        DELETE FROM Wallet Where WalletId = ? ;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Wallet_CreateTable">
+        CREATE TABLE IF NOT EXISTS Wallet (
+            WalletId TEXT PRIMARY KEY,
+            WalletName TEXT,
+            ImageId  TEXT ,
+            CurrencyTypeId INTEGER,
+            WalletType TEXT,
+            TravelModeEventId TEXT,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            Owner TEXT,
+            Participators TEXT,
+            Tag TEXT,
+            RevId TEXT
+        );
+    </string>
+</resources>

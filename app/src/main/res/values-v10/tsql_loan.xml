@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Loan_Insert">
+
+        INSERT INTO Loan (
+            LoanId ,
+            LoanName ,
+            ImageId ,
+            GeStartDate ,
+            FaStartDate ,
+            InstallmentsInterval ,
+            LoanType ,
+            Note ,
+            BankId ,
+            BankName ,
+            ReminderType ,
+            TotalInstallmentCount ,
+            TotalAmount ,
+            DeferredRate ,
+            Installments ,
+            WalletId ,
+            WalletName ,
+            CreatedAt ,
+            UpdatedAt ,
+            Editor ,
+            EditorDeviceId ,
+            Tag ,
+            RevId ) VALUES (
+            ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ,
+            ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? );
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Loan_Update">
+        UPDATE Loan SET LoanName =? ,
+            ImageId = ? ,
+            GeStartDate = ? ,
+            FaStartDate = ? ,
+            InstallmentsInterval = ?,
+            LoanType = ? ,
+            Note = ? ,
+            BankId = ? ,
+            BankName = ? ,
+            ReminderType = ? ,
+            TotalInstallmentCount = ? ,
+            TotalAmount = ? ,
+            DeferredRate = ? ,
+            Installments = ? ,
+            WalletId = ? ,
+            WalletName = ? ,
+            CreatedAt = ? ,
+            UpdatedAt = ? ,
+            Editor = ? ,
+            EditorDeviceId = ? ,
+            Tag = ? ,
+            RevId = ?
+        WHERE LoanId = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Loan_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Loan ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Loan_SelectAll_By_WalletId">
+        SELECT
+            *
+        FROM Loan
+        Where WalletId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+
+    <!--language=SQLite-->
+    <string name="sql_Loan_SelectAll">
+        SELECT
+            *
+        FROM Loan ;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Loan_SelectByLoanID">
+        SELECT
+            *
+        FROM Loan
+        Where LoanId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Loan_DeleteAll">
+        DELETE FROM Loan ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Loan_DeleteById">
+        DELETE FROM Loan Where LoanId = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Loan_DropTable">
+        DROP TABLE IF EXISTS Loan;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Loan_CreateTable">
+        CREATE TABLE IF NOT EXISTS Loan (
+            LoanId   TEXT PRIMARY KEY,
+            LoanName TEXT,
+            ImageId TEXT,
+            GeStartDate INTEGER,
+            FaStartDate TEXT,
+            InstallmentsInterval INTEGER,
+            LoanType TEXT,
+            Note TEXT,
+            BankId TEXT,
+            BankName TEXT,
+            ReminderType INTEGER,
+            TotalInstallmentCount INTEGER,
+            TotalAmount INTEGER,
+            DeferredRate INTEGER,
+            Installments TEXT,
+            WalletId TEXT,
+            WalletName TEXT,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            Tag TEXT,
+            RevId TEXT
+        );
+    </string>
+</resources>

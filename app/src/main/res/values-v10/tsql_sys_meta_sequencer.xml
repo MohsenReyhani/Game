@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Meta_Sequence_Insert">
+        INSERT INTO MetaSequence (MetaSequenceId, Pattern , Value) VALUES (null , ? , ? );
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Meta_Sequence_Update">
+        UPDATE MetaSequence SET Pattern = ? , Value = ?
+        WHERE MetaSequenceId = ?;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Meta_Sequence_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM MetaSequence ;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Meta_Sequence_SelectAll">
+        SELECT
+            *
+        FROM MetaSequence ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Meta_Sequence_SelectByPattern">
+        SELECT
+            *
+        FROM MetaSequence
+        Where Pattern = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Meta_Sequence_DropTable">
+        DROP TABLE IF EXISTS MetaSequence;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Meta_Sequence_DeleteAll">
+        DELETE FROM MetaSequence;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Meta_Sequence_CreateTable">
+        CREATE TABLE IF NOT EXISTS MetaSequence (
+            MetaSequenceId integer primary key autoincrement,
+            Pattern TEXT,
+            Value  INTEGER
+        );
+    </string>
+
+</resources>

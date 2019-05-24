@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <string name="sql_upg_update_local_data_owner_info">
+        update tbl_name set Editor = ? , EditorDeviceId = ?
+    </string>
+
+
+    <string name="sql_upg7_create_tmp_key_table">
+        CREATE TABLE IF NOT EXISTS TmpKey (
+            Id   TEXT PRIMARY KEY,
+            OrgId INTEGER,
+            tblName TEXT
+        );
+    </string>
+
+    <string name="sql_upg7_insert_tmp_key">
+        INSERT INTO TmpKey (Id, OrgId , tblName)
+        select \'new_tbl_prefix\' || substr(lower(hex(randomblob(16))) ,1) ,  t.?Id , \'?tbl\' from
+        tmp_?tbl as t ;
+
+    </string>
+
+    <string name="sql_upg7_transfer_account">
+        INSERT INTO Account (AccountId, AccountName, ImageId , GroupId , ParentAccountId
+            , PredefinedType  , IsLocked , CreationOrder , WalletId ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId)
+
+        Select k.Id, AccountName, ImageId , GroupId , ifnull(kpa.Id , \'\') , PredefinedType  , IsLocked ,k.OrgId , kw.Id ,CreatedAt , UpdatedAt ,  \'\' , \'\'
+        From tmp_Account as t
+        inner join tmpKey as k on t.AccountId = k.OrgId and k.tblName = \'Account\'
+        inner join tmpKey as kw on t.WalletId = kw.OrgId and kw.tblName = \'Wallet\'
+        Left Join tmpKey as kpa on t.ParentAccountId = kpa.OrgId and kpa.tblName = \'Account\';
+    </string>
+
+    <string name="sql_upg7_transfer_bank">
+        INSERT INTO Bank (BankId, BankName, ImageId , BankType , WalletId ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId)
+
+        Select k.Id, BankName, ImageId , BankType , kw.Id ,CreatedAt , UpdatedAt ,  \'\' , \'\'
+        From tmp_Bank as t
+        inner join tmpKey as k on t.BankId = k.OrgId and k.tblName = \'Bank\'
+        inner join tmpKey as kw on t.WalletId = kw.OrgId and kw.tblName = \'Wallet\' ;
+    </string>
+
+    <string name="sql_upg7_transfer_buget">
+        INSERT INTO Budget (BudgetId,  AccountId , AccountName
+        , AccountImageId , AccountGroupId , BudgetStartDate , BudgetEndDate
+        , BudgetAmount , WalletId
+        , CreatedAt , UpdatedAt , Editor , EditorDeviceId)
+
+        Select k.Id , ifnull(ka.Id,AccountId) , AccountName
+        , AccountImageId , AccountGroupId , BudgetStartDate , BudgetEndDate
+        , BudgetAmount , kw.Id ,CreatedAt , UpdatedAt ,  \'\' , \'\'
+        From tmp_Budget as t
+        inner join tmpKey as k on t.BudgetId = k.OrgId and k.tblName = \'Budget\'
+        inner join tmpKey as kw on t.WalletId = kw.OrgId and kw.tblName = \'Wallet\'
+        Left Join tmpKey as ka on t.AccountId = ka.OrgId and ka.tblName = \'Account\';
+    </string>
+
+    <string name="sql_upg7_transfer_cheque">
+        INSERT INTO Cheque (ChequeId, ChequeType , ChequeStatus, RegFaDate, RegGeDate, ReceivableFaDate, ReceivableGeDate,
+        ReminderFaDate, ReminderGeDate, ChequeBankAccount, ChequeNo, Note, Amount,
+        PeopleName, BankId, BankName, EventId, EventName, ProjectId,
+        ProjectName , PeopleIds , StuffId, StuffName, ImageId, Tag , AccTransactionId , WalletId,
+        WalletName ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId)
+
+        Select k.Id, ChequeType , ChequeStatus, RegFaDate, RegGeDate, ReceivableFaDate, ReceivableGeDate,
+        ReminderFaDate, ReminderGeDate, ChequeBankAccount, ChequeNo, Note, Amount,
+        PeopleName ,  \'\' , ifnull(kb.Id,\'\'), BankName, ifnull(ke.Id,\'\'), EventName, ifnull(kp.Id,\'\'),
+        ProjectName, ifnull(ks.Id,\'\'), StuffName, ImageId, Tag , ifnull(kt.Id,\'\') , ifnull(kw.Id,\'\') ,
+        WalletName  ,CreatedAt , UpdatedAt ,  \'\' , \'\'
+        From tmp_Cheque as t
+        inner join tmpKey as k on t.ChequeId = k.OrgId and k.tblName = \'Cheque\'
+        Left Join tmpKey as kb on t.BankId = kb.OrgId and kb.tblName = \'Bank\'
+        Left Join tmpKey as ke on t.EventId = ke.OrgId and ke.tblName = \'Event\'
+        Left Join tmpKey as kp on t.ProjectId = kp.OrgId and kp.tblName = \'Project\'
+        Left Join tmpKey as ks on t.StuffId = ks.OrgId and ks.tblName = \'Stuff\'
+        Left Join tmpKey as kt on t.TransactionId = kt.OrgId and kt.tblName = \'tblTransaction\'
+        inner join tmpKey as kw on t.WalletId = kw.OrgId and kw.tblName = \'Wallet\' ;
+    </string>
+
+     <string name="sql_upg7_transfer_event">
+        INSERT INTO Event (EventId, EventName, ImageId  , EventEndDate , IsFinished, WalletId
+        ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId)
+
+        Select k.Id, EventName, ImageId  , EventEndDate , IsFinished , kw.Id ,CreatedAt , UpdatedAt ,  \'\' , \'\'
+        From tmp_Event as t
+        inner join tmpKey as k on t.EventId = k.OrgId and k.tblName = \'Event\'
+        inner join tmpKey as kw on t.WalletId = kw.OrgId and kw.tblName = \'Wallet\' ;
+    </string>
+
+
+     <string name="sql_upg7_transfer_project">
+        INSERT INTO Project (ProjectId, ProjectName, ImageId , WalletId
+         ,CreatedAt , UpdatedAt , Editor , EditorDeviceId)
+
+        Select k.Id, ProjectName, ImageId , kw.Id ,CreatedAt , UpdatedAt ,  \'\' , \'\'
+        From tmp_Project as t
+        inner join tmpKey as k on t.ProjectId = k.OrgId and k.tblName = \'Project\'
+        inner join tmpKey as kw on t.WalletId = kw.OrgId and kw.tblName = \'Wallet\' ;
+    </string>
+
+     <string name="sql_upg7_transfer_saving">
+        INSERT INTO Saving (SavingId, SavingName , ImageId , EndDate , TargetAmount
+        , InitialAmount , IsFinished , InitialAmountTransactionId , SpendTransactionId , WalletId
+        ,CreatedAt , UpdatedAt , Editor , EditorDeviceId)
+
+        Select k.Id, SavingName , ImageId , EndDate , TargetAmount
+            , InitialAmount , IsFinished , ktInitial.Id , ktSpend.Id
+            , kw.Id ,CreatedAt , UpdatedAt ,  \'\' , \'\'
+        From tmp_Saving as t
+        inner join tmpKey as k on t.SavingId = k.OrgId and k.tblName = \'Saving\'
+        Left Join tmpKey as ktInitial on t.InitialAmountTransactionId = ktInitial.OrgId and ktInitial.tblName = \'tblTransaction\'
+        Left Join tmpKey as ktSpend on t.SpendTransactionId = ktSpend.OrgId and ktSpend.tblName = \'tblTransaction\'
+        inner join tmpKey as kw on t.WalletId = kw.OrgId and kw.tblName = \'Wallet\' ;
+    </string>
+
+     <string name="sql_upg7_transfer_stuff">
+        INSERT INTO Stuff (StuffId, StuffName, ImageId  , WalletId
+             ,CreatedAt , UpdatedAt , Editor , EditorDeviceId)
+
+        Select k.Id, StuffName, ImageId , kw.Id ,CreatedAt , UpdatedAt ,  \'\' , \'\'
+        From tmp_Stuff as t
+        inner join tmpKey as k on t.StuffId = k.OrgId and k.tblName = \'Stuff\'
+        inner join tmpKey as kw on t.WalletId = kw.OrgId and kw.tblName = \'Wallet\' ;
+    </string>
+
+     <string name="sql_upg7_transfer_transaction">
+        INSERT INTO AccTransaction (AccTransactionId , AccountId , AccountName ,
+        AccountImageId , AccountGroupId , RegFaDate, RegGeDate , Note ,
+        Amount, ImageId , ReminderFaDate , ReminderGeDate , BankId , BankName ,
+        EventId , EventName , ProjectId , ProjectName , PeopleName , PeopleIds,
+        StuffId , StuffName , GeneralReferenceId  , MasterAccTransactionId ,PayedDebtAmount ,
+        DebtIsFinished , Tag , WalletId , WalletName ,
+        CreatedAt , UpdatedAt ,  Editor , EditorDeviceId)
+
+        Select k.Id,  ka.Id , AccountName ,
+        AccountImageId , AccountGroupId , RegFaDate, RegGeDate , Note ,
+        Amount, ImageId , ReminderFaDate , ReminderGeDate , ifnull(kb.Id,\'\') , BankName ,
+        ifnull(ke.Id,\'\') , EventName , ifnull(kp.Id , \'\') , ProjectName , PeopleName ,  \'\' ,
+        ifnull(ks.Id,\'\') , StuffName ,  ifnull(kgr.Id ,\'\') , ifnull(ktm.Id,\'\') ,PayedDebtAmount ,
+        DebtIsFinished , Tag , kw.Id , WalletName ,CreatedAt , UpdatedAt ,  \'\' , \'\'
+        From tmp_tblTransaction as t
+        inner join tmpKey as k on t.TransactionId = k.OrgId and k.tblName = \'tblTransaction\'
+        inner join tmpKey as ka on t.AccountId = ka.OrgId and ka.tblName = \'Account\'
+        Left  join tmpKey as kb on t.BankId = kb.OrgId and kb.tblName = \'Bank\'
+        Left  join tmpKey as ke on t.EventId = ke.OrgId and ke.tblName = \'Event\'
+        Left  join tmpKey as kp on t.ProjectId = kp.OrgId and kp.tblName = \'Project\'
+        Left  join tmpKey as ks on t.StuffId = ks.OrgId and ks.tblName = \'Stuff\'
+        Left  join tmpKey as kgr on t.GeneralReferenceId = kgr.OrgId
+        Left  join tmpKey as ktm on t.MasterTransactionId = ktm.OrgId and ktm.tblName = \'tblTransaction\'
+        inner join tmpKey as kw on t.WalletId = kw.OrgId and kw.tblName = \'Wallet\' ;
+
+    </string>
+
+     <string name="sql_upg7_transfer_wallet">
+        INSERT INTO Wallet (WalletId, WalletName, ImageId , CurrencyTypeId , TravelModeEventId
+            ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , Owner , Participators)
+
+        Select k.Id, WalletName, ImageId , CurrencyTypeId , ifnull(ke.Id, \'\') ,CreatedAt , UpdatedAt ,  \'\' , \'\' ,  \'\' , \'\'
+        From tmp_Wallet as t
+        inner join tmpKey as k on t.WalletId = k.OrgId and k.tblName = \'Wallet\'
+        Left  join tmpKey as ke on t.TravelModeEventId = ke.OrgId and ke.tblName = \'Event\' ;
+    </string>
+
+
+</resources>

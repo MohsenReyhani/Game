@@ -1,0 +1,275 @@
+apply plugin: 'com.android.application'
+
+
+def getVersionCodeTimestamp() {
+
+    def date = Calendar.getInstance()
+    date.set(Calendar.HOUR, 1);
+    date.set(Calendar.MINUTE, 1);
+    date.set(Calendar.SECOND, 1);
+    date.set(Calendar.MILLISECOND, 1);
+
+    def formattedDate = date.format('yyMMddHH')
+    def code = formattedDate.toInteger()
+
+    return code
+}
+
+
+def getVersionNameDayStamp() {
+    def date = Calendar.getInstance()
+    date.set(Calendar.HOUR, 1);
+    date.set(Calendar.MINUTE, 1);
+    date.set(Calendar.SECOND, 1);
+    date.set(Calendar.MILLISECOND, 1);
+    return date.format('dd')
+}
+
+def getVersionNameMonthStamp() {
+    def date = Calendar.getInstance()
+    date.set(Calendar.HOUR, 1);
+    date.set(Calendar.MINUTE, 1);
+    date.set(Calendar.SECOND, 1);
+    date.set(Calendar.MILLISECOND, 1);
+    return date.format('MM')
+}
+
+android {
+
+    compileSdkVersion 28
+
+    defaultConfig {
+
+        applicationId "com.mohsen.game"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode getVersionCodeTimestamp()
+        versionName "8.${getVersionNameMonthStamp()}.${getVersionNameDayStamp()}"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'NIVO_INSTANCE_Cloud_ID', '"35335EAE-B370-43B0-A251-AFB5A1484B6A"'
+        buildConfigField 'String', 'DROPBOX_KEY', '"xtag1wt5sf1vitm"'
+        buildConfigField 'String', 'DROPBOX_SECRET', '"tjlk6kk2pzlddao"'
+        buildConfigField 'String', 'ZIP_SECRET', '"ni0192837465"'
+        buildConfigField 'String', 'ENCRYPT_SECRET', '"champion"'
+
+
+        manifestPlaceholders = [manifestApplicationId          : "${applicationId}",
+                                onesignal_app_id               : "25f8c033-48a8-4d1b-bfd4-a738e0629691",
+                                onesignal_google_project_number: "337493945381"]
+
+        vectorDrawables.useSupportLibrary = true
+
+        renderscriptTargetApi 27
+        renderscriptSupportModeEnabled true
+    }
+
+    /*signingConfigs {
+        config {
+            keyAlias 'NivoPublishKey'
+            keyPassword 'AoU*&b%pQ4.'
+            storeFile file('/Users/alireza.bonab/Workspace/Nivo/publish_key.jks')
+            storePassword 'AoU*&b%pQ4.'
+            v2SigningEnabled false
+        }
+    }*/
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "free"
+
+    /*productFlavors {
+        Cando {
+            dimension "free"
+            buildConfigField 'int', 'MARKET', '0'
+            buildConfigField 'String', 'M_SERVICE_ACTION', '"com.ada.market.service.payment.BIND"'
+            buildConfigField 'String', 'M_NAMESPACE', '"com.ada.market"'
+            buildConfigField 'String', 'M_KEY', '"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCC3hfXAyBj1bnrlNilrtdW4U1qkI8FP27usDKinH9w/XQddtbyn/yY+Qpgi9rZqGEiy8g7jqZr6YZAM3hJCB4V6dvZPwdHmF2AgtbQJQGYbk4lfhfzQl+UGUtsRJtiaPoJZ7ZTYFlqlAz0tRR83w5y0NdkHyqnaJYyOBvI9jgmXwIDAQAB"'
+            buildConfigField 'String', 'M_COMMENT_URI', '"cando://details?id=com.nivo.personalaccounting"'
+            buildConfigField 'String', 'M_F_NAME', '"کندو"'
+            buildConfigField 'String', 'M_E_NAME', '"Cando"'
+            buildConfigField 'String', 'M_URL', '"http://apps.asr24.com/apps/CanDo.apk?header"'
+            buildConfigField 'String', 'M_PERMISSION', '""'
+            buildConfigField 'boolean', 'M_PURCHASE_THOURTH_IAB', 'false'
+            buildConfigField 'boolean', 'FORCE_TEST_SERVER', 'false'
+            buildConfigField 'boolean', 'PROVIDER_AYANDE', 'true'
+            buildConfigField 'boolean', 'PROVIDER_TOSAN', 'true'
+            buildConfigField 'boolean', 'PROVIDER_TEJARAT', 'true'
+            buildConfigField 'boolean', 'PROVIDER_ZARINPAL', 'true'
+            buildConfigField 'boolean', 'PROVIDER_HESABIT', 'true'
+            buildConfigField 'boolean', 'PROVIDER_CASPIAN', 'true'
+
+        }
+        Bazaar {
+            dimension "free"
+            buildConfigField 'int', 'MARKET', '1'
+            buildConfigField 'String', 'M_SERVICE_ACTION', '"ir.cafebazaar.pardakht.InAppBillingService.BIND"'
+            buildConfigField 'String', 'M_NAMESPACE', '"com.farsitel.bazaar"'
+            buildConfigField 'String', 'M_KEY', '"MIHNMA0GCSqGSIb3DQEBAQUAA4G7ADCBtwKBrwDG9fMsTiTWXgPW7rzsa0sDRAoJj4XGjhL7LdhH3kETGa93rJQBJ+6gyZiGTYVrSwoeSCE0KDQZTaFXqmQctwAeKULYvQFYfQuz1EJhGV/vz61YQ/s7T+X29rszBG2Nqeb72TbDcCuLkErbqRBYnWxh9lH7hGZ0rQ2aGgRxOTqurHhARe/qjH6XFElYN6t+LFpCiH2WnBql/Wf0Yhj2KRhi12r+m6e7EFvXXyvIj40CAwEAAQ=="'
+            buildConfigField 'String', 'M_COMMENT_URI', '"bazaar://details?id=com.nivo.personalaccounting"'
+            buildConfigField 'String', 'M_F_NAME', '"بازار"'
+            buildConfigField 'String', 'M_E_NAME', '"Bazaar"'
+            buildConfigField 'String', 'M_URL', '"https://cafebazaar.ir/install/?l=fa"'
+            buildConfigField 'String', 'M_PERMISSION', '"com.farsitel.bazaar.permission.PAY_THROUGH_BAZAAR"'
+            buildConfigField 'boolean', 'M_PURCHASE_THOURTH_IAB', 'true'
+            buildConfigField 'boolean', 'FORCE_TEST_SERVER', 'false'
+            buildConfigField 'boolean', 'PROVIDER_AYANDE', 'true'
+            buildConfigField 'boolean', 'PROVIDER_TOSAN', 'true'
+            buildConfigField 'boolean', 'PROVIDER_TEJARAT', 'true'
+            buildConfigField 'boolean', 'PROVIDER_ZARINPAL', 'true'
+            buildConfigField 'boolean', 'PROVIDER_HESABIT', 'true'
+            buildConfigField 'boolean', 'PROVIDER_CASPIAN', 'true'
+
+        }
+        Myket {
+            dimension "free"
+            buildConfigField 'int', 'MARKET', '2'
+            buildConfigField 'String', 'M_SERVICE_ACTION', '"ir.mservices.market.InAppBillingService.BIND"'
+            buildConfigField 'String', 'M_NAMESPACE', '"ir.mservices.market"'
+            buildConfigField 'String', 'M_KEY', '"MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgLBcvdJ23d6uBlz17EFTHTeo+Rq7xIE5uEfyRXaIsGYKHhtcVVgQMtIA1ebwY8l5NuCUvVg/Hp8+4BVM+Xl0TWzptbfs1RFGtGc/2X2v7PGagfMv7kYwrjO4WePssHHTSSf0BBNEtZ8udOp/5OGAHl/ssjh+INJv1CmZbuADSWuZAgMBAAE="'
+            buildConfigField 'String', 'M_COMMENT_URI', '"myket://comment/#Intent;scheme=comment;package=com.nivo.personalaccounting"'
+            buildConfigField 'String', 'M_F_NAME', '"مایکت"'
+            buildConfigField 'String', 'M_E_NAME', '"Myket"'
+            buildConfigField 'String', 'M_URL', '"https://www.myket.ir/get/app"'
+            buildConfigField 'String', 'M_PERMISSION', '"ir.mservices.market.BILLING"'
+            buildConfigField 'boolean', 'M_PURCHASE_THOURTH_IAB', 'true'
+            buildConfigField 'boolean', 'FORCE_TEST_SERVER', 'false'
+            buildConfigField 'boolean', 'PROVIDER_AYANDE', 'true'
+            buildConfigField 'boolean', 'PROVIDER_TOSAN', 'true'
+            buildConfigField 'boolean', 'PROVIDER_TEJARAT', 'true'
+            buildConfigField 'boolean', 'PROVIDER_ZARINPAL', 'true'
+            buildConfigField 'boolean', 'PROVIDER_HESABIT', 'true'
+            buildConfigField 'boolean', 'PROVIDER_CASPIAN', 'true'
+
+        }
+        Play {
+            dimension "free"
+            buildConfigField 'int', 'MARKET', '3'
+            buildConfigField 'String', 'M_SERVICE_ACTION', '"ir.cafebazaar.pardakht.InAppBillingService.BIND"'
+            buildConfigField 'String', 'M_NAMESPACE', '"com.farsitel.bazaar"'
+            buildConfigField 'String', 'M_KEY', '"MIHNMA0GCSqGSIb3DQEBAQUAA4G7ADCBtwKBrwDG9fMsTiTWXgPW7rzsa0sDRAoJj4XGjhL7LdhH3kETGa93rJQBJ+6gyZiGTYVrSwoeSCE0KDQZTaFXqmQctwAeKULYvQFYfQuz1EJhGV/vz61YQ/s7T+X29rszBG2Nqeb72TbDcCuLkErbqRBYnWxh9lH7hGZ0rQ2aGgRxOTqurHhARe/qjH6XFElYN6t+LFpCiH2WnBql/Wf0Yhj2KRhi12r+m6e7EFvXXyvIj40CAwEAAQ=="'
+            buildConfigField 'String', 'M_COMMENT_URI', '"bazaar://details?id=com.nivo.personalaccounting"'
+            buildConfigField 'String', 'M_F_NAME', '"بازار"'
+            buildConfigField 'String', 'M_E_NAME', '"gPlay"'
+            buildConfigField 'String', 'M_URL', '"https://cafebazaar.ir/install/?l=fa"'
+            buildConfigField 'String', 'M_PERMISSION', '"com.farsitel.bazaar.permission.PAY_THROUGH_BAZAAR"'
+            buildConfigField 'boolean', 'M_PURCHASE_THOURTH_IAB', 'false'
+            buildConfigField 'boolean', 'FORCE_TEST_SERVER', 'false'
+            buildConfigField 'boolean', 'PROVIDER_AYANDE', 'true'
+            buildConfigField 'boolean', 'PROVIDER_TOSAN', 'true'
+            buildConfigField 'boolean', 'PROVIDER_TEJARAT', 'true'
+            buildConfigField 'boolean', 'PROVIDER_ZARINPAL', 'true'
+            buildConfigField 'boolean', 'PROVIDER_HESABIT', 'true'
+            buildConfigField 'boolean', 'PROVIDER_CASPIAN', 'true'
+
+        }
+        Tosanboom {
+            dimension "free"
+            buildConfigField 'int', 'MARKET', '4'
+            buildConfigField 'String', 'M_SERVICE_ACTION', '"ir.cafebazaar.pardakht.InAppBillingService.BIND"'
+            buildConfigField 'String', 'M_NAMESPACE', '"com.farsitel.bazaar"'
+            buildConfigField 'String', 'M_KEY', '"MIHNMA0GCSqGSIb3DQEBAQUAA4G7ADCBtwKBrwDG9fMsTiTWXgPW7rzsa0sDRAoJj4XGjhL7LdhH3kETGa93rJQBJ+6gyZiGTYVrSwoeSCE0KDQZTaFXqmQctwAeKULYvQFYfQuz1EJhGV/vz61YQ/s7T+X29rszBG2Nqeb72TbDcCuLkErbqRBYnWxh9lH7hGZ0rQ2aGgRxOTqurHhARe/qjH6XFElYN6t+LFpCiH2WnBql/Wf0Yhj2KRhi12r+m6e7EFvXXyvIj40CAwEAAQ=="'
+            buildConfigField 'String', 'M_COMMENT_URI', '"bazaar://details?id=com.nivo.personalaccounting"'
+            buildConfigField 'String', 'M_F_NAME', '"توسن بوم"'
+            buildConfigField 'String', 'M_E_NAME', '"Bazaar"'
+            buildConfigField 'String', 'M_URL', '"https://cafebazaar.ir/install/?l=fa"'
+            buildConfigField 'String', 'M_PERMISSION', '"com.farsitel.bazaar.permission.PAY_THROUGH_BAZAAR"'
+            buildConfigField 'boolean', 'M_PURCHASE_THOURTH_IAB', 'false'
+            buildConfigField 'boolean', 'FORCE_TEST_SERVER', 'false'
+            buildConfigField 'boolean', 'PROVIDER_AYANDE', 'true'
+            buildConfigField 'boolean', 'PROVIDER_TOSAN', 'true'
+            buildConfigField 'boolean', 'PROVIDER_TEJARAT', 'true'
+            buildConfigField 'boolean', 'PROVIDER_ZARINPAL', 'true'
+            buildConfigField 'boolean', 'PROVIDER_HESABIT', 'true'
+            buildConfigField 'boolean', 'PROVIDER_CASPIAN', 'true'
+
+        }
+        IranApps {
+            buildConfigField 'int', 'MARKET', '5'
+            buildConfigField 'String', 'M_SERVICE_ACTION', '"ir.tgbs.iranapps.billing.InAppBillingService.BIND"'
+            buildConfigField 'String', 'M_NAMESPACE', '"ir.tgbs.android.iranapp"'
+            buildConfigField 'String', 'M_KEY', '"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCuYTTVVbyZxqhYHCwkn7Qi+jT7dtewwGDyPealbhCqbVZ2+q2+RDFyVoMn8OKKE0aBSYfe4nTowXCF6SJxxd/2u4E6JOcv/uo2RvKyCFuJ7kv64SeV1GZDByIYQ6fGgHeh//eUBt/KbestldjQVkv+k0Xoatn7welHM7crXuEkSwIDAQAB"'
+            buildConfigField 'String', 'M_COMMENT_URI', '"iranapps://app/com.nivo.personalaccounting?a=comment&r=5"'
+            buildConfigField 'String', 'M_F_NAME', '"ایران اپس"'
+            buildConfigField 'String', 'M_E_NAME', '"IranApps"'
+            buildConfigField 'String', 'M_URL', '"http://iranapps.com/dl"'
+            buildConfigField 'String', 'M_PERMISSION', '"ir.tgbs.iranapps.permission.BILLING"'
+            buildConfigField 'boolean', 'M_PURCHASE_THOURTH_IAB', 'true'
+            buildConfigField 'boolean', 'FORCE_TEST_SERVER', 'false'
+            buildConfigField 'boolean', 'PROVIDER_AYANDE', 'true'
+            buildConfigField 'boolean', 'PROVIDER_TOSAN', 'true'
+            buildConfigField 'boolean', 'PROVIDER_TEJARAT', 'true'
+            buildConfigField 'boolean', 'PROVIDER_ZARINPAL', 'true'
+            buildConfigField 'boolean', 'PROVIDER_HESABIT', 'true'
+            buildConfigField 'boolean', 'PROVIDER_CASPIAN', 'true'
+
+        }
+    }*/
+
+    lintOptions { checkReleaseBuilds false }
+
+    buildTypes {
+        debug {
+            debuggable true
+            /*applicationIdSuffix '.debug'
+            versionNameSuffix '-DEBUG'*/
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //signingConfig signingConfigs.config
+            /*applicationVariants.all { variant ->
+                variant.productFlavors.each { flavor ->
+                    variant.outputs.all {
+                        if (variant.buildType.name.toUpperCase() == "RELEASE") {
+                            //add here your logic to customize the name of the apk
+                            outputFileName = "acc-" + flavor.name.toLowerCase() + "-" + variant.buildType.name + "-${variant.versionName}.apk"
+                        }
+                    }
+                    variant.assemble.doLast { assemble ->
+                        //copy the apk in another directory, add here your
+                        //logic to customize the destination folder
+                    }
+                }
+
+            }*/
+        }
+        beta {
+            initWith release
+            //minifyEnabled true
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationIdSuffix ".beta"
+            matchingFallbacks = ['debug', 'release']
+            //signingConfig signingConfigs.config
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.android.support:design:28.0.0'
+}

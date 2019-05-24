@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+     <string name="sql_AccTransaction_TrendsView_SelectByDay">
+        Select RegFaDate , IncomeAmount , ExpenseAmount ,  NetAmount from
+         ( SELECT
+            RegFaDate ,
+            Sum(Case When AccountGroupId = 1 Then Amount Else 0 End) as IncomeAmount,
+            Sum(Case When AccountGroupId = 2 Then abs(Amount) * -1 Else 0 End) as ExpenseAmount,
+            Sum(Amount) as NetAmount
+        FROM AccTransaction
+        Where RegGeDate &gt;= ? and RegGeDate &lt;= ?
+    </string>
+
+    <string name="sql_AccTransaction_TrendsView_SelectByDay_Part2">
+        Group By RegFaDate
+        ) as t1
+        Order By RegFaDate Asc ;
+    </string>
+
+
+     <string name="sql_AccTransaction_TrendsView_SelectByMonth">
+        Select RegFaDate || \'01\' as RegFaDate , IncomeAmount , ExpenseAmount , NetAmount from
+         ( SELECT
+            substr(RegFaDate ,1  ,8) as RegFaDate ,
+            Sum(Case When AccountGroupId = 1 Then Amount Else 0 End) as IncomeAmount,
+            Sum(Case When AccountGroupId = 2 Then abs(Amount) * -1 Else 0 End) as ExpenseAmount,
+            Sum(Amount) as NetAmount
+        FROM AccTransaction
+        Where RegGeDate &gt;= ? and RegGeDate &lt;= ?
+    </string>
+
+    <string name="sql_AccTransaction_TrendsView_SelectByMonth_Part2">
+        Group By substr(RegFaDate ,1  ,8)
+        ) as t1
+        Order By RegFaDate Asc ;
+    </string>
+
+
+
+
+
+</resources>

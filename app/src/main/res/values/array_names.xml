@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mehreghtesad">بانک مهر اقتصاد</string>
+    <string name="eghtesadnovin">بانک اقتصاد نوین</string>
+    <string name="parsian">بانک پارسیان</string>
+    <string name="pasargad">بانک پاسارگاد</string>
+    <string name="postbank">بانک پست بانک</string>
+    <string name="tejarat">بانک تجارت</string>
+    <string name="etebaritosee">بانک اعتباري توسعه</string>
+    <string name="toseesaderat">بانک توسعه صادرات</string>
+    <string name="refah">بانک رفاه</string>
+    <string name="saman">بانک سامان</string>
+    <string name="sepah">بانک سپه</string>
+    <string name="sarmaye">بانک سرمايه</string>
+    <string name="saderat">بانک صادرات</string>
+    <string name="sanatomadan">بانک صنعت و معدن</string>
+    <string name="karafarin">بانک کارآفرين</string>
+    <string name="keshavarzi">بانک کشاورزي</string>
+    <string name="markazi">بانک مركزي</string>
+    <string name="maskan">بانک مسکن</string>
+    <string name="mellat">بانک ملت</string>
+    <string name="melli">بانک ملي</string>
+    <string name="ayande">بانک آینده</string>
+    <string name="ansar">بانک انصار</string>
+    <string name="iranzamin">بانک ایران زمین</string>
+    <string name="iranvenezoela">بانک ایران ونزوئلا</string>
+    <string name="hekmat">بانک حکمت</string>
+    <string name="day">بانک دی</string>
+    <string name="sina">بانک سینا</string>
+    <string name="shahr">بانک شهر</string>
+    <string name="resalat">بانک قرض الحسنه رسالت</string>
+    <string name="gardeshgari">بانک گردشگری</string>
+    <string name="gharz_mehr">بانک قرض الحسنه مهر</string>
+    <string name="khavarmiane">بانک خاورمیانه</string>
+    <string name="ghavvamin">بانک قوامین</string>
+    <string name="tosehtaavon">بانک توسعه تعاون</string>
+    <string name="kosar">بانک کوثر</string>
+    <string name="zarinpal">زرین پال</string>
+    <string name="paypal">پی پال</string>
+    <string name="master_card">مستر کارت</string>
+    <string name="visa_card">ویزا کارت</string>
+    <string name="bitcoin">بیت کوین</string>
+    <string name="web_money">وب مانی</string>
+    <string name="american_express">آمریکن اکسپرس</string>
+</resources>

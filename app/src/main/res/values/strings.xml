@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Game</string>
+    <string name="app_name_fa">بازی</string>
+
+    <!-- Activity Titles -->
+
+    <string name="title_activity_account_list_selection">انتخاب گروه حساب</string>
+    <string name="title_activity_cu_account">گروه های حساب</string>
+    <string name="title_activity_general_icon_selection">انتخاب تصویر</string>
+    <string name="title_activity_input_money_value">مبلغ</string>
+    <string name="title_activity_cu_new_account">گروه حساب جدید</string>
+    <string name="title_activity_cu_edit_account">ویرایش حساب</string>
+    <string name="title_activity_cu_new_cash_bank">منبع جدید</string>
+    <string name="title_activity_cu_edit_bank">ویرایش منبع</string>
+    <string name="title_activity_cu_new_project"> برچسب جدید</string>
+    <string name="title_activity_cu_edit_project">ویرایش برچسب</string>
+    <string name="title_activity_cu_new_wallet"> کیف پول جدید</string>
+    <string name="title_activity_cu_edit_wallet">تنظیمات کیف پول</string>
+    <string name="title_activity_cu_new_transaction">تراکنش جدید</string>
+    <string name="title_activity_cu_edit_transaction">ویرایش تراکنش</string>
+    <string name="title_activity_transaction_list">لیست تراکنش‌ها</string>
+    <string name="title_activity_tip_calculator">محاسبه گر انعام</string>
+    <string name="title_activity_interest_rate_calculator">محاسبه گر سود سرمایه</string>
+    <string name="title_activity_transaction_pie_report">برآیند هزینه و دریافت</string>
+    <string name="title_activity_user_registration">ورود</string>
+
+    <!-- Menu Items Title -->
+    <string name="nav_li_main_board">صفحه اصلی</string>
+    <string name="nav_li_content">محتوا</string>
+    <string name="nav_li_videos">کلیپ ها</string>
+    <string name="nav_li_voice">نوا ها</string>
+    <string name="nav_li_setting">تنظیمات</string>
+
+
+    <!-- Hints -->
+    <string name="hint_account">گروه حساب</string>
+    <string name="hint_account_name">نام گروه حساب</string>
+    <string name="hint_account_group_name">نوع حساب</string>
+    <string name="hint_tran_parent_name">گروه حساب مرجع :</string>
+    <string name="hint_transaction_more_detail">جزئیات بیشتر</string>
+    <string name="hint_note">یادداشت</string>
+    <string name="hint_transaction_reminder">یادآور</string>
+    <string name="hint_select_reminder">انتخاب یادآور</string>
+    <string name="hint_cash_bank_name">نام منبع</string>
+    <string name="hint_project_name">نام برچسب</string>
+    <string name="hint_wallet_name">نام کیف پول</string>
+    <string name="hint_wallet_currency_type_colon">واحد پول :</string>
+    <string name="hint_wallet_initial_balance">موجودی اولیه</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">کلمه عبور</string>
+    <string name="hint_cash_bank">منبع</string>
+    <string name="hint_cash_bank_colon">منبع :</string>
+    <string name="hint_event">رخداد</string>
+    <string name="hint_select_text_font">انتخاب فونت متن</string>
+    <string name="hint_select_digit_font">انتخاب فونت پول</string>
+
+    <!-- Dialog Items -->
+    <string name="dialog_yes_button_title">بله</string>
+    <string name="dialog_no_button_title">خیر</string>
+    <string name="dialog_cancel_button_title">لغو</string>
+    <string name="dialog_select_button_title">انتخاب</string>
+    <string name="dialog_close_button_title">بستن</string>
+    <string name="dialog_confirm_button_title">تایید</string>
+
+    <!-- Time Separators -->
+    <string name="from_date_title">از تاریخ</string>
+    <string name="to_date_title">تا</string>
+
+    <!-- Time Separators -->
+    <string name="from_date_title_colon">از :</string>
+    <string name="to_date_title_colon">تا :</string>
+
+    <!-- Date Group Titles -->
+    <string name="account_income_title">دریافت</string>
+    <string name="account_expense_title">هزینه</string>
+    <string name="account_net_income_title">مجموع</string>
+
+    <!-- Action Bar Titles -->
+
+    <!-- Splash Box Titles -->
+    <string name="splash_screen_user_login">ورود</string>
+    <string name="splash_screen_recover_password">رمز عبور خود را فراموش کرده ام</string>
+    <string name="splash_screen_submit_reset_password">بازیابی کلمه عبور</string>
+    <string name="splash_screen_recover_password_msg">لطفا آدرس ایمیل خود را وارد نمایید.</string>
+
+    <!-- Toast Title Messages -->
+    <string name="error_title">خطا</string>
+
+    <!-- Settings -->
+
+    <string name="setting_not_set">انتخاب نشده است</string>
+    <string name="setting_system_security_lock">قفل امنیتی</string>
+    <string name="setting_system_show_wallet_in_statusbar">نمایش کیف پول در نوار وضعیت</string>
+    <string name="setting_database_restore_data">بازیابی پشتیبان اطلاعات</string>
+    <string name="setting_database_backup_data">پشتیبان گیری اطلاعات</string>
+    <string name="setting_database_auto_backup_data">پشتیبان گیری اتوماتیک اطلاعات</string>
+    <string name="setting_database_reset_data">پاک کردن تمامی اطلاعات</string>
+    <string name="setting_activated">فعال شده</string>
+    <string name="setting_database_backup_to_file">نام فایل پشتیبان</string>
+    <string name="setting_database_last_backup">آخرین پشتیبان گیری:</string>
+    <string name="setting_database_backup_successful">فایل پشتیبان با موفقیت ایجاد گردید</string>
+    <string name="setting_database_backup_unsuccessful">بروز خطا در هنگام ایجاد پشتیبان</string>
+    <string name="setting_database_restore_successful">بازیابی پشتیبان با موفقیت انجام شد</string>
+    <string name="setting_database_restore_unsuccessful">بروز خطا در هنگام بازیابی پشتیبان</string>
+    <string name="process_successful">فرآیند با موفقیت انجام شد.</string>
+    <string name="file_name_incorrect">نام فایل معتبر نمی باشد</string>
+    <string name="setting_database_choose_restore_file">انتخاب فایل پشتیبان</string>
+
+
+    <string name="setting_display_cloud_account">حساب کاربری</string>
+    <string name="setting_database_backup">پشتیبان گیری</string>
+    <string name="setting_display_transactions_setting">نمایش تراکنش ها</string>
+    <string name="setting_display_bug_report">گزارش مشکل</string>
+    <string name="setting_display_about">درباره</string>
+    <string name="setting_display_contact_us">مستقیم با ما در ارتباط باشید</string>
+    <string name="setting_display_sign_out">خروج از حساب کاربری</string>
+
+    <string name="attention">توجه</string>
+
+    <string name="hint_message">پیام</string>
+
+    <string name="export_excel">خروجی Excel</string>
+    <string name="remind_me_later">بعدا یادم بنداز !</string>
+    <string name="never">نمی خواهم</string>
+    <string name="right_now">باشه :)</string>
+    <string name="submit_poll">ثبت نظر سنجی</string>
+    <string name="no">خیر</string>
+    <string name="yes">بله</string>
+    <string name="hint_answer">جواب شما</string>
+    <string name="lowest">کمترین</string>
+    <string name="highest">بیشترین</string>
+    <string name="your_poll_submited">ثبت نظر سنجی</string>
+    <string name="your_poll_submitted_body">نظر شما در سیستم ثبت گردید، مطمئنا همفکری شما  به ما در ارائه خدمات بهتر کمک فراوانی می کند.</string>
+    <string name="new_share">اشتراک گذاری جدید</string>
+
+
+    <string name="exception_access_server">خطا دسترسی به سرور جهت به اشتراک گذاری کیف پول.</string>
+    <string name="restart">راه اندازی مجدد</string>
+    <string name="error_msg_max_shared_wallet">تعداد اشتراک ها برای این کیف پول به حداکثر خود رسیده و امکان اشتراک جدید و جود ندارد.</string>
+    <string name="recurring_from">از</string>
+    <string name="recurring_every">هر</string>
+    <string name="recurring_forever">برای همیشه</string>
+    <string name="recurring_occurrence">مرتبه</string>
+    <string name="date_day">روز</string>
+    <string name="date_week">هفته</string>
+    <string name="date_month">ماه</string>
+    <string name="date_year">سال</string>
+    <string name="exact_number_of_occurrence">تعداد...</string>
+    <string name="recurring_till_date">تا تاریخ</string>
+    <string name="unlimited">برای همیشه</string>
+    <string name="hint_amount_colon">مبلغ :</string>
+    <string name="hint_schedule">برنامه زمانی :</string>
+    <string name="title_activity_cu_new_cash_recurring_acc_transaction">تراکنش دوره ای جدید</string>
+    <string name="title_activity_cu_edit_recurring_acc_transaction">ویرایش تراکنش دوره ای</string>
+    <string name="no_recurring_acc_transaction_submited">هیچ تراکنش دوره ای ثبت نشده است.</string>
+    <string name="no_recurring_acc_transaction_press_plus_button_budget">برای ثبت تراکنش دوره ای جدید دکمه مثبت بالا استفاده کنید.</string>
+    <string name="transport_taxi">حمل و نقل - تاکسی</string>
+    <string name="recurring_acc_transaction">تراکنش های دوره ای</string>
+    <string name="walkthrough_recurring_acc_transaction">برای شما هم پیش آمده که یکسری تراکنش‌هایی داشته باشید که در بازه های زمانی مختلف تکرار شوند به طور مثال هزینه تاکسی که هر روز پرداخت می کنید یا حقوق و مزایایی که هر ماه دریافت می کنید.</string>
+    <string name="walkthrough_recurring_acc_transaction_p2">برای مدیریت این تراکنش‌ها کافیست در قسمت تراکنش‌های دوره ای تراکنشی را با بازه تکرار مشخص کنید. این تراکنش بر اساس بازه زمانی تکرار می گردد.</string>
+    <string name="notification_reccurring_acc_transaction_reminder">تراکنش  مورد نظر برای</string>
+    <string name="recurring_submited">را ثبت کردم ;)</string>
+    <string name="select">انتخاب</string>
+    <string name="title_activity_cu_new_contact">شخص جدید</string>
+    <string name="no_contact_press_plus_button">مخاطبی وجود ندارد برای اضافه کردن مخاطب جدید از دکمه + زیر استفاده نمایید.</string>
+    <string name="hint_contact_name">نام شخص</string>
+    <string name="title_activity_cu_edit_contact">ویرایش شخص</string>
+    <string name="error_msg_contact_name">نام شخص مورد نظر را فراموش کرده اید.</string>
+    <string name="msg_bank_gateway_interest">واریز سود</string>
+    <string name="msg_bank_gateway_bill">پرداخت قبض</string>
+    <string name="msg_bank_gateway_cash">نقدی</string>
+    <string name="msg_bank_gateway_transaction">تراکنش</string>
+    <string name="no_transaction_transaction_with_this_params">تراکنشی یافت نشد.</string>
+    <string name="deposit_title">سپرده</string>
+    <string name="share_app">اشتراک گذاری</string>
+    <string name="choose">انتخاب کنید</string>
+
+
+    <string name="dialog_clear_button_title">عدم انتخاب</string>
+    <string name="changes_of_this_version">تغییرات این نسخه</string>
+
+    <string name="hint_exit">برای خروج، مجددا دکمه بازگشت را بزنید.</string>
+
+    <string name="other_features">سایر امکانات</string>
+    <string name="more_info">اطلاعات بیشتر</string>
+
+    <string name="choose_button_label">انتخاب</string>
+    <string name="cancel_button_label">لغو</string>
+
+
+    <string name="permission_access">دسترسی به نیو</string>
+    <string name="network_unavailable">اینترنت متصل نمی باشد</string>
+
+</resources>

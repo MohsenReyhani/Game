@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_SelectByAccountMasterView">
+        Select
+             AccountId ,
+            AccountName ,
+            AccountImageId ,
+            AccountGroupId ,
+            Amount
+        From ( SELECT
+            AccountId ,
+            AccountName ,
+            AccountImageId ,
+            AccountGroupId ,
+            Sum( Amount ) as Amount
+        FROM AccTransaction
+        Where 1=1
+    </string>
+
+    <string name="sql_AccTransaction_SelectByAccountMasterView_Part2">
+         Group By AccountId , AccountName , AccountImageId
+         ) as t1
+         Order By  AccountGroupId ASC ,  Amount DESC ;
+    </string>
+
+
+</resources>

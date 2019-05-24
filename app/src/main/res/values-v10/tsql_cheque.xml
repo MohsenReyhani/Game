@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_Insert">
+        INSERT INTO Cheque (ChequeId, ChequeType , ChequeStatus, RegFaDate, RegGeDate, ReceivableFaDate, ReceivableGeDate,
+        ReminderFaDate, ReminderGeDate, ChequeBankAccount, ChequeNo, Note, Amount,
+        PeopleIds , PeopleName, BankId, BankName, EventId, EventName, ProjectId,
+        ProjectName, StuffId, StuffName, ImageId, Tag , AccTransactionId , WalletId,
+        WalletName ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , RevId )
+        VALUES ( ? , ? , ? , ? , ? , ? ,
+                 ? , ? , ? , ? , ? , ? ,
+                 ? , ? , ? , ? , ? , ? ,
+                 ? , ? , ? , ? , ? , ? ,
+                 ? , ? , ? , ? , ? , ? ,
+                 ? , ? , ?  );
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_Update">
+        UPDATE Cheque SET ChequeType = ? , ChequeStatus = ? , RegFaDate = ?, RegGeDate = ?, ReceivableFaDate = ?, ReceivableGeDate = ?,
+        ReminderFaDate = ?, ReminderGeDate = ?, ChequeBankAccount = ?, ChequeNo = ?, Note = ?, Amount = ?,
+        PeopleIds = ?, PeopleName = ?, BankId = ?, BankName = ?, EventId = ?, EventName = ?, ProjectId = ?,
+        ProjectName = ?, StuffId = ?, StuffName = ?, ImageId = ?, Tag = ? , AccTransactionId = ? , WalletId= ?,
+        WalletName = ?,CreatedAt = ?, UpdatedAt = ?,  Editor = ?, EditorDeviceId= ?  , RevId = ?
+        WHERE ChequeId = ?;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Cheque
+        Where 1 = 1
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_CountItemsByWalletId">
+        SELECT
+        Count(*) as CountItems
+        FROM Cheque
+        Where WalletId = ?
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_SumAmount">
+        SELECT
+        Sum(Amount) as Amount
+        FROM Cheque
+        Where 1 = 1
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_SelectAll_By_WalletId">
+        SELECT
+            *
+        FROM Cheque
+        Where WalletId = ?
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_SelectAll">
+        SELECT
+            *
+        FROM Cheque
+        Where 1 = 1
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_SelectAll_OrderPart">
+
+        Order by Amount Desc
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_SelectByChequeID">
+        SELECT
+            *
+        FROM Cheque
+        Where ChequeId = ? ;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_DeleteAll">
+        DELETE FROM Cheque ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_DeleteById">
+        DELETE FROM Cheque Where ChequeId = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_DropTable">
+        DROP TABLE IF EXISTS Cheque;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_CreateTable">
+        CREATE TABLE IF NOT EXISTS Cheque (
+            ChequeId   TEXT PRIMARY KEY,
+            ChequeType INTEGER,
+            ChequeStatus INTEGER,
+            RegFaDate Text,
+            RegGeDate INTEGER,
+            ReceivableFaDate Text,
+            ReceivableGeDate INTEGER,
+            ReminderFaDate Text,
+            ReminderGeDate INTEGER ,
+            ChequeBankAccount TEXT,
+            ChequeNo TEXT,
+            Note Text,
+            Amount INTEGER,
+            PeopleIds Text,
+            PeopleName Text,
+            BankId TEXT,
+            BankName Text,
+            EventId TEXT,
+            EventName Text,
+            ProjectId TEXT,
+            ProjectName Text,
+            ProjectIds Text,
+            StuffId TEXT,
+            StuffName Text,
+            ImageId  TEXT ,
+            Tag Text,
+            AccTransactionId TEXT,
+            WalletId TEXT,
+            WalletName Text,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            CloudId TEXT,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            RevId TEXT
+
+        );
+    </string>
+</resources>

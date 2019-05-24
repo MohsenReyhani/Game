@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Saving_Insert">
+        INSERT INTO Saving (SavingId, SavingName , ImageId , EndDate , TargetAmount
+        , InitialAmount , IsFinished , InitialAmountTransactionId , SpendTransactionId , WalletId
+        ,CreatedAt , UpdatedAt , Editor , EditorDeviceId , Tag , RevId)
+        VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?, ?, ?, ?  , ? , ?  );
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Saving_Update">
+        UPDATE Saving SET  SavingName = ? , ImageId = ?, EndDate = ?, TargetAmount = ?
+        , InitialAmount = ?, IsFinished= ?  , InitialAmountTransactionId = ? , SpendTransactionId = ? ,   WalletId = ?
+        , CreatedAt = ? , UpdatedAt = ? , Editor  = ? , EditorDeviceId= ? , Tag =  ? , RevId = ?
+        WHERE SavingId = ?;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Saving_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Saving ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Saving_SelectAll_By_WalletId">
+        SELECT
+            *
+        FROM Saving
+        Where WalletId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Saving_Select_By_WalletIdAndFinished">
+        SELECT
+            *
+        FROM Saving
+        Where WalletId = ? And IsFinished = ?;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Saving_SelectAll">
+        SELECT
+            *
+        FROM Saving ;
+
+    </string>
+
+
+
+
+    <!--language=SQLite-->
+    <string name="sql_Saving_SelectBySavingID">
+        SELECT
+            *
+        FROM Saving
+        Where SavingId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Saving_DeleteAll">
+        DELETE FROM Saving;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Saving_DeleteById">
+        DELETE FROM Saving Where SavingId = ? ;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Saving_DropTable">
+        DROP TABLE IF EXISTS Saving ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Saving_CreateTable">
+        CREATE TABLE IF NOT EXISTS Saving (
+            SavingId   TEXT PRIMARY KEY,
+            SavingName TEXT ,
+            ImageId TEXT ,
+            EndDate INTEGER ,
+            TargetAmount INTEGER ,
+            InitialAmount INTEGER ,
+            IsFinished INTEGER,
+            InitialAmountTransactionId TEXT,
+            SpendTransactionId TEXT,
+            WalletId TEXT,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            Tag TEXT,
+            RevId TEXT
+        );
+    </string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+
+
+    <string name="sql_tmp_Contact_Insert">
+        INSERT INTO tmp_Contact(ContactId, PhoneContactId, DisplayName, Phones , Emails , ImageUri , UpdatedAt )
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_tmp_Contact_SelectAll">
+        SELECT
+            *
+        FROM tmp_Contact
+        Where 1 = 1
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_tmp_Contact_DeleteAll">
+        DELETE FROM tmp_Contact;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_tmp_Contact_DropTable">
+        DROP TABLE IF EXISTS tmp_Contact;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_tmp_Contact_CreateTable">
+        CREATE TABLE IF NOT EXISTS tmp_Contact(
+            ContactId TEXT primary key,
+            PhoneContactId TEXT,
+            DisplayName TEXT,
+            Phones Text,
+            Emails Text,
+            ImageUri Text,
+            UpdatedAt INTEGER
+        );
+    </string>
+
+</resources>

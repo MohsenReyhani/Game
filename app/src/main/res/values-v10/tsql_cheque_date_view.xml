@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="sql_Cheque_SelectByDateDayView">
+        select * from (
+        SELECT
+        ReceivableFaDate,
+        sum(case when ChequeType = 1 then amount else 0 end) as inChequeTotalAmount,
+        sum(case when ChequeType = 2 then amount else 0 end) as outChequeTotalAmount
+        FROM Cheque
+        Where 1 = 1
+
+    </string>
+
+    <string name="sql_Cheque_SelectByDateDayView_OrderPart">
+        Group By ReceivableFaDate
+        ) as t ;
+        Order By ReceivableFaDate DESC
+    </string>
+
+
+     <string name="sql_Cheque_SelectByDateMonthView">
+        select distinct * from (
+         Select substr(ReceivableFaDate ,1  ,8) || \'01\' as ReceivableFaDate
+        FROM Cheque
+        Where 1 = 1
+    </string>
+
+    <string name="sql_Cheque_SelectByDateMonthView_OrderPart">
+
+        Order By substr(ReceivableFaDate ,1  ,8) DESC
+        ) as t ;
+    </string>
+
+
+
+
+</resources>

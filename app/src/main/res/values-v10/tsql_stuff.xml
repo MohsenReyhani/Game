@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Stuff_Insert">
+        INSERT INTO Stuff (StuffId, StuffName, ImageId  , WalletId
+         ,CreatedAt , UpdatedAt , Editor , EditorDeviceId , Tag , RevId)
+       VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? );
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Stuff_Update">
+        UPDATE Stuff SET StuffName = ? , ImageId = ? ,   WalletId = ?
+          , CreatedAt = ? , UpdatedAt = ? , Editor  = ? , EditorDeviceId= ?  , Tag =  ? , RevId = ?
+        WHERE StuffId = ?;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Stuff_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Stuff ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Stuff_SelectAll_By_WalletId">
+        SELECT
+            *
+        FROM Stuff
+        Where WalletId = ? ;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Stuff_SelectAll">
+        SELECT
+            *
+        FROM Stuff ;
+
+    </string>
+
+
+
+
+
+    <!--language=SQLite-->
+    <string name="sql_Stuff_SelectByStuffID">
+        SELECT
+            *
+        FROM Stuff
+        Where StuffId = ? ;
+
+    </string>
+
+
+
+    <!--language=SQLite-->
+    <string name="sql_Stuff_DeleteAll">
+        DELETE FROM Stuff ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Stuff_DeleteById">
+        DELETE FROM Stuff Where StuffId = ? ;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Stuff_DropTable">
+        DROP TABLE IF EXISTS Stuff;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Stuff_CreateTable">
+        CREATE TABLE IF NOT EXISTS Stuff (
+            StuffId   TEXT PRIMARY KEY,
+            StuffName TEXT,
+            ImageId  TEXT ,
+            IsActive INTEGER ,
+            WalletId TEXT,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            Tag TEXT,
+            RevId TEXT
+        );
+    </string>
+</resources>

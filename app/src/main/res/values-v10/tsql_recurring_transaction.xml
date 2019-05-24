@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_RecurringAccTransaction_Insert">
+        INSERT INTO RecurringAccTransaction (RecurringAccTransactionId
+        , PeriodType , GeStartDate , GeEndDate , FaStartDate , FaEndDate
+        , RecurringStep , OccurrenceNumber , RecurringEndType
+        , SelectedWeekDays , AccTransactionAccountId
+        , AccTransactionAmount , Note
+        , OccurredNumber  , NextOccurringDate , LastTimeOccurredDate
+        , BankId , BankName, EventId , EventName
+        , ProjectId, ProjectName , StuffId, StuffName , PeopleName , PeopleIds
+        , WalletId
+        , CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , Tag , RevId)
+
+        VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ?,
+                ? , ? , ? , ? , ? , ? , ? , ? , ? , ?,
+                ? , ? , ? , ? , ? , ? , ? , ? , ? , ?,
+                ? , ? , ?);
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_RecurringAccTransaction_Update">
+        UPDATE RecurringAccTransaction SET
+         PeriodType = ?, GeStartDate = ?, GeEndDate = ?
+        , FaStartDate = ?, FaEndDate = ?
+        , RecurringStep = ?, OccurrenceNumber = ?, RecurringEndType = ?
+        , SelectedWeekDays = ?, AccTransactionAccountId= ?
+        , AccTransactionAmount = ?, Note = ?
+        , OccurredNumber = ?, NextOccurringDate = ? , LastTimeOccurredDate = ?
+        , BankId = ?, BankName= ?, EventId= ? , EventName= ?
+        , ProjectId= ?, ProjectName = ?, StuffId= ?, StuffName = ?, PeopleName= ? , PeopleIds = ?
+        ,  WalletId = ?
+        , CreatedAt = ?, UpdatedAt = ?,  Editor = ?, EditorDeviceId = ?, Tag = ?, RevId = ?
+        WHERE RecurringAccTransactionId = ?;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_RecurringAccTransaction_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM RecurringAccTransaction
+        Where 1=1
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_RecurringAccTransaction_SelectAll_By_WalletId">
+        SELECT
+            *
+        FROM RecurringAccTransaction
+        Where WalletId = ? ;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_RecurringAccTransaction_SelectAll">
+        SELECT
+            *
+        FROM RecurringAccTransaction
+        where 1=1
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_RecurringAccTransaction_SelectByRecurringAccTransactionID">
+        SELECT
+            *
+        FROM RecurringAccTransaction
+        Where RecurringAccTransactionId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_RecurringAccTransaction_DeleteAll">
+        DELETE FROM RecurringAccTransaction ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_RecurringAccTransaction_DeleteById">
+        DELETE FROM RecurringAccTransaction Where RecurringAccTransactionId = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_RecurringAccTransaction_DropTable">
+        DROP TABLE IF EXISTS RecurringAccTransaction;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_RecurringAccTransaction_CreateTable">
+        CREATE TABLE IF NOT EXISTS RecurringAccTransaction (
+            RecurringAccTransactionId   TEXT PRIMARY KEY,
+            PeriodType INTEGER,
+            GeStartDate INTEGER,
+            FaStartDate INTEGER,
+            RecurringStep INTEGER,
+            SelectedWeekDays TEXT,
+            GeEndDate INTEGER,
+            FaEndDate INTEGER,
+            OccurrenceNumber INTEGER,
+            RecurringEndType INTEGER,
+            OccurredNumber INTEGER,
+            NextOccurringDate INTEGER,
+            LastTimeOccurredDate INTEGER,
+            AccTransactionAccountId TEXT,
+            AccTransactionAmount INTEGER,
+            Note TEXT,
+            BankId TEXT,
+            BankName Text,
+            EventId TEXT,
+            EventName Text,
+            ProjectId TEXT,
+            ProjectName Text,
+            PeopleName Text,
+            PeopleIds Text,
+            StuffId TEXT,
+            StuffName Text,
+            WalletId TEXT,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            Tag TEXT,
+            RevId TEXT
+
+        );
+    </string>
+</resources>

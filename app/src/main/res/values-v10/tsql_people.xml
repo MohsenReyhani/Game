@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_People_SelectAll_By_WalletId">
+        SELECT DISTINCT
+            PeopleName
+        FROM AccTransaction
+        Where WalletId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_People_SelectAll">
+        SELECT DISTINCT
+            PeopleName
+        FROM AccTransaction ;
+
+    </string>
+
+</resources>

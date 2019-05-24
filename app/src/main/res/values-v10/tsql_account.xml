@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Account_Insert">
+        INSERT INTO Account (AccountId, AccountName, ImageId , GroupId
+        , ParentAccountId, PredefinedType  , IsLocked , CreationOrder , WalletId
+        ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , Tag , RevId)
+        VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? );
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Account_Update">
+        UPDATE Account SET AccountName = ? , ImageId = ? , GroupId = ?
+        ,  ParentAccountId = ? , PredefinedType = ? , IsLocked = ? , CreationOrder = ? , WalletId = ?
+        , CreatedAt = ? , UpdatedAt = ?
+        , Editor  = ? , EditorDeviceId= ?
+        , Tag =  ? , RevId = ?
+        WHERE AccountId = ?;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Account_MaxChildItemsOrder">
+        SELECT
+        Max(PredefinedType) as MaxChildItemsOrder
+        FROM Account
+        WHERE ParentAccountId = ? ;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Account_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Account
+        Where WalletId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Account_IsParent">
+        SELECT
+        Count(*) as CountItems
+        FROM Account
+        Where ParentAccountId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Account_CountItemsByGroupId">
+        SELECT
+        Count(*) as CountItems
+        FROM Account
+        Where GroupId = ? AND WalletId = ?
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Account_CountChildItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Account
+        Where ParentAccountId = ?
+
+    </string>
+
+
+
+
+    <!--language=SQLite-->
+    <string name="sql_Account_SelectAllByWalletId">
+        SELECT
+
+            *
+        FROM Account
+        Where  ParentAccountId = \'\' And WalletId = ? And  AccountName Like ?
+        Order By CreationOrder ASC
+        {topx};
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Account_SelectAllByWalletIdAndPredefinedType">
+
+        SELECT
+            *
+        FROM Account
+        Where  ParentAccountId = \'\' And WalletId = ? And PredefinedType = ?
+        Order By CreationOrder ASC;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Account_SelectAll">
+        SELECT
+            *
+        FROM Account
+        where ParentAccountId = \'\'  and 1 = 1
+        Order By CreationOrder ASC;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Account_SelectAllChildren">
+        SELECT
+            *
+        FROM Account
+        where ParentAccountId = ?
+        Order By CreationOrder ASC;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Account_SelectByAccountID">
+        SELECT
+            *
+        FROM Account
+        Where AccountId = ?;
+
+    </string>
+
+
+
+
+    <!--language=SQLite-->
+    <string name="sql_Account_SelectByGroupId">
+        SELECT
+            *
+        FROM Account
+        Where ParentAccountId = \'\' And WalletId = ? And GroupId = ? And AccountName Like ?
+
+        Order By CreationOrder ASC;
+    </string>
+<!--
+Where ParentAccountId = \'\' And GroupId = ? And WalletId = ?
+    -->
+
+    <!--language=SQLite-->
+    <string name="sql_Account_DropTable">
+        DROP TABLE IF EXISTS Account;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Account_DeleteAll">
+        DELETE FROM Account;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Account_DeleteById">
+        DELETE FROM Account
+        Where AccountId = ? ;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Account_CreateTable">
+        CREATE TABLE IF NOT EXISTS Account (
+            AccountId TEXT PRIMARY KEY,
+            AccountName TEXT,
+            ImageId  TEXT ,
+            GroupId INTEGER ,
+            ParentAccountId TEXT ,
+            PredefinedType TEXT,
+            IsLocked INTEGER,
+            CreationOrder INTEGER,
+            WalletId TEXT,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            Tag TEXT,
+            RevId TEXT
+        );
+    </string>
+</resources>

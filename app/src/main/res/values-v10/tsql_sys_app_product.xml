@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_Insert">
+        INSERT INTO AppProduct (AppProductId, Category, ProductName, IsActive, Price, Icon, FeaturedImage, CreatedAt,
+        Version, Description, Tag, UpdatedAt, Discount, DiscountExpireDate, EntityType, InstallationCount , Images,
+        Date , SkuName)
+        VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?);
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_Update">
+        UPDATE AppProduct SET AppProductId = ?, ProductName = ?, IsActive = ?, Price = ?, Icon = ?, FeaturedImage = ?,
+        CreatedAt = ?, Version = ?, Description = ?, Tag = ?, UpdatedAt = ?, Discount = ?, DiscountExpireDate = ?, EntityType = ?,
+        InstallationCount = ? , Images = ? , Date = ? , SkuName = ?
+        WHERE Category = ?;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM AppProduct ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_SelectAll">
+        SELECT
+            *
+        FROM AppProduct ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_SelectByCategory">
+        SELECT
+            *
+        FROM AppProduct
+        Where Category = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_SelectBySku">
+        SELECT
+            *
+        FROM AppProduct
+        Where SkuName = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_SelectByCategoryAndNewest">
+        SELECT
+            *
+        FROM AppProduct
+        Where Category = ?
+        ORDER BY CAST(CreatedAt AS INTEGER) DESC;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_SelectByCategoryAndFavoriest">
+        SELECT
+            *
+        FROM AppProduct
+        Where Category = ?
+        ORDER BY CAST(InstallationCount AS INTEGER) DESC;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_SelectByAppProductId">
+        SELECT
+            *
+        FROM AppProduct
+        Where AppProductId = ? ;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_DropTable">
+        DROP TABLE IF EXISTS AppProduct;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_DeleteAll">
+        DELETE FROM AppProduct;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_DeleteByAppProductId">
+        DELETE FROM AppProduct Where AppProductId = ?;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_DeleteByAppProductId_Like">
+        DELETE FROM AppProduct Where AppProductId Like ?;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_App_Product_CreateTable">
+        CREATE TABLE IF NOT EXISTS AppProduct (
+            AppProductId TEXT PRIMARY KEY,
+            Category TEXT,
+            ProductName TEXT,
+            IsActive TEXT,
+            Price TEXT,
+            Icon TEXT,
+            FeaturedImage TEXT,
+            CreatedAt TEXT,
+            Version TEXT,
+            Description TEXT,
+            Tag TEXT,
+            UpdatedAt TEXT,
+            Discount TEXT,
+            DiscountExpireDate TEXT,
+            EntityType TEXT,
+            InstallationCount TEXT,
+            Images TEXT,
+            Date TEXT,
+            SkuName TEXT
+        );
+    </string>
+</resources>

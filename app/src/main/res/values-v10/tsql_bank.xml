@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Bank_Insert">
+        INSERT INTO Bank (BankId, BankName, ImageId , BankType , BankAccountNo , BankCardNo , Note
+        , Sheba , BankProfileId , Provider , DepositNumber , BankKey , Balance , WalletId
+        ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , Tag , RevId)
+        VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?);
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Bank_Update">
+        UPDATE Bank SET BankName = ? , ImageId = ? , BankType = ? , BankAccountNo =?, BankCardNo =?, Note = ? , Sheba = ?
+        , BankProfileId = ? , Provider = ? , DepositNumber = ? , BankKey = ? , Balance = ? ,   WalletId = ?
+        , CreatedAt = ? , UpdatedAt = ? ,  Editor  = ? , EditorDeviceId= ? , Tag =  ? , RevId = ?
+        WHERE BankId = ?;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Bank_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Bank
+        Where 1=1
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Bank_SelectAll_By_WalletId">
+        SELECT
+            *
+        FROM Bank
+        Where WalletId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Bank_SelectAll_By_Provider_And_BankKey">
+        SELECT
+            *
+        FROM Bank
+        Where Provider = ? And BankKey = ?;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Bank_SelectAll_By_WalletId_And_BankType">
+        SELECT
+            *
+        FROM Bank
+        Where WalletId = ? And BankType = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Bank_SelectAll">
+        SELECT
+            *
+        FROM Bank
+        Where 1=1
+    </string>
+
+
+
+
+    <!--language=SQLite-->
+    <string name="sql_Bank_SelectByBankID">
+        SELECT
+            *
+        FROM Bank
+        Where BankId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Bank_DeleteAll">
+        DELETE FROM Bank ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Bank_DeleteById">
+        DELETE FROM Bank Where BankId = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Bank_DropTable">
+        DROP TABLE IF EXISTS Bank;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Bank_CreateTable">
+        CREATE TABLE IF NOT EXISTS Bank (
+            BankId   TEXT PRIMARY KEY,
+            BankName TEXT,
+            ImageId  TEXT ,
+            BankType INTEGER,
+            BankAccountNo TEXT,
+            BankCardNo TEXT,
+            Note TEXT,
+            Sheba TEXT,
+            BankProfileId TEXT,
+            Provider TEXT,
+            DepositNumber TEXT,
+            BankKey TEXT,
+            Balance TEXT,
+            WalletId TEXT,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            Tag TEXT,
+            RevId TEXT
+
+        );
+    </string>
+
+
+
+    <string name="sql_upgrade_bank">
+        INSERT INTO Bank (BankId, BankName, ImageId , BankType , BankAccountNo , BankCardNo , Note
+        , Sheba , BankProfileId , Provider , DepositNumber , BankKey , Balance , WalletId
+        ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , Tag , RevId)
+
+        Select BankId, BankName, ImageId , BankType , BankAccountNo , BankCardNo , Note
+        , \'\' , \'\' , \'\' , \'\' , Tag , 0 , WalletId
+        ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , Tag , RevId From tmp_bank
+        Where BankId not in (Select BankId From Bank)
+    </string>
+</resources>

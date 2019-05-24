@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_Insert">
+        INSERT INTO AccTransaction (AccTransactionId , AccountId , AccountName ,
+        AccountImageId , AccountGroupId , RegFaDate, RegGeDate , Note ,
+        Amount, ImageId , ReminderFaDate , ReminderGeDate , BankId , BankName ,
+        EventId , EventName , ProjectId , ProjectName , PeopleName , PeopleIds ,
+        StuffId , StuffName , GeneralReferenceId  , MasterAccTransactionId ,PayedDebtAmount ,
+        DebtIsFinished , Tag , WalletId , WalletName ,
+        CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , RevId)
+        VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ,
+                 ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ,
+                 ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ,
+                 ? );
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_Update">
+        UPDATE AccTransaction SET  AccountId = ?, AccountName = ?, AccountImageId = ?,AccountGroupId = ? , RegFaDate = ?,
+        RegGeDate = ? , Note = ? , Amount = ? , ImageId = ?, ReminderFaDate = ? , ReminderGeDate = ?  , BankId = ? ,
+        BankName = ?  , EventId = ? , EventName = ? , ProjectId = ? , ProjectName = ? ,
+         PeopleName = ? , PeopleIds = ? , StuffId = ? , StuffName = ? , GeneralReferenceId = ? , MasterAccTransactionId = ? ,
+        PayedDebtAmount = ? , DebtIsFinished = ? , Tag = ? ,
+        WalletId = ? , WalletName = ? , CreatedAt = ? , UpdatedAt = ? , Editor = ? , EditorDeviceId= ? , RevId = ?
+        WHERE AccTransactionId = ?;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_SumAmountByAccountGroupId">
+        SELECT
+        Sum(Amount) as Amount
+        FROM AccTransaction
+        Where RegGeDate &gt;= ? and RegGeDate &lt;= ? and AccountGroupId = ?
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_SumTotalAmountByWalletId">
+        SELECT
+        Sum(Amount) as Amount
+        FROM AccTransaction
+        Where WalletId = ?
+
+    </string>
+
+    <string name="sql_AccTransaction_Sum">
+        SELECT
+        Sum(Amount) as Amount
+        FROM AccTransaction
+        Where 1 = 1
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_CountItems">
+        SELECT
+        Count(*) as CountItems
+        From AccTransaction
+        where 1 = 1
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_SelectAll_By_WalletId">
+        SELECT
+            *
+        From AccTransaction
+        Where WalletId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_SelectAll">
+        SELECT
+            *
+        From AccTransaction
+        Where 1 = 1
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_Select_Order_Part">
+        Order By  AccountGroupId ASC ,  Amount  DESC ;
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_SelectByTransactionID">
+        SELECT
+            *
+        From AccTransaction
+        Where AccTransactionId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_SelectByGeneralReferenceID">
+        SELECT
+            *
+        From AccTransaction
+        Where GeneralReferenceId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_SelectLastAccTransaction">
+        SELECT
+            *
+        From AccTransaction
+        where 1=1
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_SelectLastAccTransaction_Part2">
+        Order by RegGeDate Desc
+        Limit ?
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_SelectBiggestByAccountGroupId">
+        SELECT
+            *
+        From AccTransaction
+        Where RegGeDate &gt;= ? and RegGeDate &lt;= ? and WalletId = ? and AccountGroupId = ?
+
+
+    </string>
+
+    <string name="sql_AccTransaction_SelectBiggestByAccountGroupId_part2">
+
+        Order By abs(Amount) DESC
+        LIMIT 1;
+
+    </string>
+
+
+    <!--language=SQLite-->
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_DeleteById">
+        DELETE From AccTransaction Where AccTransactionId = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_DropTable">
+        DROP TABLE IF EXISTS AccTransaction;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_AccTransaction_CreateTable">
+        CREATE TABLE IF NOT EXISTS AccTransaction (
+            AccTransactionId TEXT PRIMARY KEY,
+            AccountId TEXT,
+            AccountName Text,
+            AccountImageId Text,
+            AccountGroupId Integer,
+            RegFaDate Text,
+            RegGeDate INTEGER,
+            Note Text,
+            Amount INTEGER,
+            ImageId Text,
+            ReminderFaDate Text,
+            ReminderGeDate INTEGER ,
+            BankId TEXT,
+            BankName Text,
+            EventId TEXT,
+            EventName Text,
+            ProjectId TEXT,
+            ProjectName Text,
+            PeopleName Text,
+            PeopleIds Text,
+            StuffId TEXT,
+            StuffName Text,
+            GeneralReferenceId TEXT,
+            MasterAccTransactionId TEXT,
+            PayedDebtAmount INTEGER,
+            DebtIsFinished INTEGER,
+            Tag Text,
+            WalletId TEXT,
+            WalletName Text,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            RevId TEXT
+
+        );
+    </string>
+</resources>

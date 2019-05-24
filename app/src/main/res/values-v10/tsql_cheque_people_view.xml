@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Cheque_SelectByPeopleMasterView">
+        SELECT
+           Distinct  PeopleName
+        FROM Cheque
+        Where 1 = 1
+    </string>
+
+     <string name="sql_Cheque_SelectByPeopleMasterView_OrderPart">
+         Order By  PeopleName Asc ;
+    </string>
+
+</resources>

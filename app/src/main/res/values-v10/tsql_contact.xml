@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+
+
+    <string name="sql_Contact_Insert">
+        INSERT INTO Contact (ContactId, PhoneContactId, DisplayName, Phones , Emails , ImageUri , Note
+        ,  UsedInCheque , UsedInTransaction , ProfileId, UserId, WalletIds , BankAccounts , BankCards , MergeIds
+        ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , Tag , RevId)
+        VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? );
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Contact_Update">
+        UPDATE Contact SET PhoneContactId = ? , DisplayName = ? , Phones = ? , Emails = ? , ImageUri = ? , Note = ?
+        ,  UsedInCheque = ? , UsedInTransaction = ? ,
+        ProfileId = ? , UserId = ? , WalletIds = ?,BankAccounts = ? , BankCards = ? , MergeIds = ?,
+        CreatedAt = ? , UpdatedAt = ? ,  Editor  = ? , EditorDeviceId= ? , Tag =  ? , RevId = ?
+        WHERE ContactId = ?;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Contact_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Contact
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Contact_SelectAll">
+        SELECT
+            *
+        FROM Contact
+        Where 1 = 1
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Contact_SelectAll_Just_Display_Name">
+        SELECT
+            ContactId,
+            DisplayName,
+            PhoneContactId
+        FROM Contact
+        Where 1 = 1
+
+    </string>
+
+    <string name="sql_Contact_Order_Part">
+        Order By UsedInTransaction DESC , lower( DisplayName ) ASC ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Contact_SelectByContactID">
+        SELECT
+            *
+        FROM Contact
+        Where ContactId = ?
+        Order By UsedInTransaction DESC , lower( DisplayName ) ASC
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Contact_SelectByDisplayName">
+        SELECT
+            *
+        FROM Contact
+        Where DisplayName = ?
+        Order By UsedInTransaction DESC , lower( DisplayName ) ASC
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Contact_DeleteAll">
+        DELETE FROM Contact ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Contact_DeleteById">
+        DELETE FROM Contact Where ContactId = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Contact_DropTable">
+        DROP TABLE IF EXISTS Contact;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Contact_CreateTable">
+        CREATE TABLE IF NOT EXISTS Contact (
+            ContactId   TEXT PRIMARY KEY,
+            PhoneContactId TEXT,
+            DisplayName TEXT,
+            Phones Text,
+            Emails Text,
+            ImageUri Text,
+            Note Text,
+            UsedInCheque INTEGER,
+            UsedInTransaction INTEGER,
+            ProfileId Text,
+            UserId Text,
+            WalletIds Text,
+            BankAccounts Text,
+            BankCards Text,
+            MergeIds Text,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            Tag TEXT,
+            RevId TEXT
+
+        );
+    </string>
+
+    <string name="sql_Contact_Insert_From_Tmp_Contact_Part_1">
+         INSERT INTO Contact (ContactId, PhoneContactId, DisplayName, Phones , Emails , ImageUri , Note
+        ,  UsedInCheque , UsedInTransaction , ProfileId, UserId, WalletIds , BankAccounts , BankCards , MergeIds
+        ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , Tag , RevId)
+
+    </string>
+
+    <string name="sql_Contact_Insert_From_Tmp_Contact_Part_2">
+        Select
+        ContactId, PhoneContactId, DisplayName, Phones , Emails , ImageUri , \'\'
+        ,  0 , 0 , ProfileId, UserId, \'\' , \'\' , \'\' , \'\'
+        ,CreatedAt , UpdatedAt ,  Editor , EditorDeviceId , \'\' , \'\'
+        From tmp_Contact
+        Where
+        ContactId not in ( select ContactId From Contact) And
+        DisplayName not in ( select DisplayName From Contact) And
+        Phones not in ( select Phones From Contact) And
+        Emails not in ( select Emails From Contact)
+    </string>
+
+</resources>

@@ -1,0 +1,345 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app">
+
+    <RelativeLayout
+        android:id="@+id/vBox_nav_upper_part"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/navbar_banner_header_height"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/btn_simple"
+        android:clickable="true"
+        android:paddingLeft="@dimen/small_margin"
+        android:paddingRight="@dimen/small_margin">
+
+        <FrameLayout
+            android:id="@+id/vBoxUpperView"
+            android:layout_width="@dimen/medium_size"
+            android:layout_height="@dimen/medium_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_play">
+
+            <View
+                android:layout_width="@dimen/medium_size"
+                android:layout_height="@dimen/medium_size"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_filled_white"/>
+
+            <ImageView
+                android:id="@+id/imgUpperBox"
+                android:layout_width="@dimen/medium_size"
+                android:layout_height="@dimen/medium_size"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/small_margin"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:scaleType="centerInside"/>
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/txtUpperBox"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_toRightOf="@id/vBoxUpperView"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"
+            android:includeFontPadding="false"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/h1_font_size"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/vBox_nav_MenuItems"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/vBox_nav_upper_part"
+        android:background="@color/nav_list_items_background"
+        android:visibility="visible">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/vBox_nav_ListItems"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/vBox_nav_upper_part"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/xxsmall_margin">
+
+                <LinearLayout
+                    android:id="@+id/vBox_nav_li_main_board"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_simple"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/xxsmall_margin">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/xmedium_size"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:paddingRight="@dimen/xsmall_margin"
+                        android:text="@string/nav_li_main_board"
+                        android:textColor="@color/nav_item_text"
+                        android:textSize="@dimen/h3_font_size"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/small_size"
+                        android:layout_height="@dimen/small_size"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/small_margin"
+                        android:scaleType="center"
+                        app:srcCompat="@drawable/ic_home"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/vBox_nav_li_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_simple"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/xxsmall_margin">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/xmedium_size"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:paddingRight="@dimen/xsmall_margin"
+                        android:text="@string/nav_li_content"
+                        android:textColor="@color/nav_item_text"
+                        android:textSize="@dimen/h3_font_size"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/small_size"
+                        android:layout_height="@dimen/small_size"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/small_margin"
+                        android:scaleType="center"
+                        app:srcCompat="@drawable/ic_page_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/vBox_nav_li_voice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_simple"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/xxsmall_margin">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/xmedium_size"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:paddingRight="@dimen/xsmall_margin"
+                        android:text="@string/nav_li_voice"
+                        android:textColor="@color/nav_item_text"
+                        android:textSize="@dimen/h3_font_size"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/small_size"
+                        android:layout_height="@dimen/small_size"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/small_margin"
+                        android:scaleType="center"
+                        app:srcCompat="@drawable/ic_music"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/vBox_nav_li_videos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_simple"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/xxsmall_margin">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/xmedium_size"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:paddingRight="@dimen/xsmall_margin"
+                        android:text="@string/nav_li_videos"
+                        android:textColor="@color/nav_item_text"
+                        android:textSize="@dimen/h3_font_size"
+                        android:visibility="visible"/>
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="@dimen/small_size"
+                        android:layout_height="@dimen/small_size"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/small_margin"
+                        android:scaleType="center"
+                        app:srcCompat="@drawable/ic_video"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="@dimen/xsmall_margin"
+                    android:layout_marginLeft="@dimen/xlarge_margin"
+                    android:layout_marginRight="@dimen/xlarge_margin"
+                    android:layout_marginTop="@dimen/xsmall_margin"
+                    android:background="@color/nav_divider"/>
+
+                <LinearLayout
+                    android:id="@+id/vBox_nav_li_Setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_simple"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/xxsmall_margin">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/xmedium_size"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:paddingRight="@dimen/xsmall_margin"
+                        android:text="@string/nav_li_setting"
+                        android:textColor="@color/nav_item_text"
+                        android:textSize="@dimen/h3_font_size"/>
+
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="@dimen/small_size"
+                        android:layout_height="@dimen/small_size"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/small_margin"
+                        android:padding="@dimen/xxsmall_margin"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/ic_settings"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/img_nav_btn_social_net"
+            android:layout_width="@dimen/medium_size"
+            android:layout_height="@dimen/medium_size"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/btn_simple_round"
+            android:scaleType="center"
+            app:srcCompat="@drawable/ic_play"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/vBox_nav_WalletList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background"
+        android:visibility="gone">
+
+
+        <View
+            android:id="@+id/sep"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentTop="true"
+
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+
+        <View
+            android:id="@+id/sep2"
+
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_above="@+id/vBoxContainer"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+
+        <FrameLayout
+            android:id="@+id/vBoxContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:id="@+id/vBox_nav_btn_add_wallet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/medium_margin"
+                android:background="@drawable/btn_rer_fill_green"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/xsmall_margin"
+                android:paddingLeft="@dimen/large_margin"
+                android:paddingRight="@dimen/large_margin"
+                android:paddingTop="@dimen/xsmall_margin">
+
+                <TextView
+                    android:id="@+id/txt_nav_btn_add_wallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_vertical"
+                    android:layout_marginRight="@dimen/xsmall_margin"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center|center_vertical"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/h5_font_size"/>
+
+                <ImageView
+                    android:id="@+id/img_nav_btn_add_wallet"
+                    android:layout_width="@dimen/xsmall_size"
+                    android:layout_height="@dimen/xsmall_size"
+                    android:layout_gravity="center|center_vertical"
+                    app:srcCompat="@drawable/ic_play"/>
+
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <ListView
+            android:id="@+id/lstWallets"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/sep2"
+            android:layout_below="@+id/sep"
+            android:layout_gravity="center_vertical"
+            android:background="@color/main_background"
+            android:choiceMode="singleChoice"
+            android:clickable="true"
+            android:divider="@drawable/line_dotted"
+            android:dividerHeight="2dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layerType="software"
+            android:scrollbars="none"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

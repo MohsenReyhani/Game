@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="actionbar_background">#ff5abf4b</color>
+
+    <color name="app">#924cbd</color>
+    <color name="primary">#ffffff</color>
+    <color name="primary_dark">#000000</color>
+    <color name="primary_divider_line">#bdc2c8</color>
+
+
+    <color name="splashscreen_primary_dark">#ff0b7e07</color>
+    <color name="primary_semi_transparent">#ad86c4</color>
+    <color name="primary_light">#d9c8e4</color>
+
+    <color name="white">#ffffff</color>
+    <color name="hint_color">#bdc2c8</color>
+    <color name="light_text">#bdc2c8</color>
+    <color name="gray_text">#808e8e</color>
+    <color name="dark_text">#34495e</color>
+
+    <color name="divider">#cccccc</color>
+    <color name="frame_border">#808e8e</color>
+
+    <color name="page_indicator_selected">#26A69A</color>
+    <color name="page_indicator">#ffa5a5a5</color>
+
+    <color name="welcome">#ffffff</color>
+    <color name="welcome_dark">#004D40</color>
+
+    <color name="view_touched">#15000000</color>
+    <color name="actionbar_view_touched">#40000000</color>
+
+    <color name="circle_progress">#aa389acc</color>
+
+    <color name="blue">#ff389acc</color>
+    <color name="blue_dark">#227cab</color>
+    <color name="blue_light">#ff72c0cc</color>
+
+    <color name="red">#ffe64141</color>
+    <color name="red_dark">#b72d2d</color>
+    <color name="red_light">#e54c3c</color>
+
+    <color name="yellow">#ECBD0E</color>
+
+    <color name="green">#5bbd4c</color>
+    <color name="green_light">#72d762</color>
+    <color name="green_dark">#46ae36</color>
+
+    <color name="info_button_normal">#ff2bc713</color>
+    <color name="info_button_pressed">#ff20960f</color>
+
+    <color name="link_normal">#ff3599cb</color>
+    <color name="link_pressed">#ff0d61e5</color>
+
+    <color name="tab_background">#ff242424</color>
+    <color name="tab_background_light">#fff6f6f6</color>
+    <color name="tab_indicator">#ff3599cb</color>
+    <color name="tab_indicator_light">#ff72c0cc</color>
+    <color name="tab_divider">#ff505050</color>
+
+
+    <color name="calculator_background">#151d23</color>
+    <color name="calculator_btn_text">#ffffff</color>
+    <color name="calculator_header">#aaeff3ea</color>
+    <color name="calculator_btn_background">#dd5a5a5a</color>
+    <color name="calculator_orange">#fff59e02</color>
+    <color name="calculator_orange_dark">#ffd38702</color>
+    <color name="calculator_orange_dark_harder">#ba7702</color>
+    <color name="calculator_green">#ff2bc713</color>
+    <color name="calculator_green_dark">#ff20960f</color>
+    <color name="calculator_green_dark_harder">#15630a</color>
+    <color name="calculator_number">#3e464d</color>
+    <color name="calculator_number_dark">#33393f</color>
+    <color name="calculator_number_dark_harder">#262b2f</color>
+    <color name="calculator_function">#273742</color>
+    <color name="calculator_function_dark">#1c2830</color>
+    <color name="calculator_function_dark_harder">#0c1216</color>
+
+    <color name="main_background3">#ffa5a5a5</color>
+    <color name="main_background">#ffffff</color>
+    <color name="main_background2">#fff6f6f6</color>
+
+    <color name="token_normal">#ffe5e5e5</color>
+    <color name="token_selected">#808e8e</color>
+
+    <color name="divider2">#ffdbdbdb</color>
+    <color name="divider_harder">#ffd0d0d0</color>
+    <color name="list_item_background">#ffffffff</color>
+    <color name="list_item_background_selected">#fff3f3f3</color>
+    <color name="list_item_background_selected_entity">#f2efe9</color>
+    <color name="item_background_selection">#4449f0ff</color>
+    <color name="contact_item_background">#ffdde0e5</color>
+    <color name="contact_item_background_selected">#aa6bf959</color>
+
+    <color name="list_item_shadow">#d2d2d2</color>
+
+    <color name="transparent_toast">#99000000</color>
+    <color name="transparent_dark">#55000000</color>
+    <color name="transparent_light_dark">#22000000</color>
+    <color name="transparent_light_dark3">#10000000</color>
+    <color name="transparent_light_dark4">#07000000</color>
+    <color name="transparent_light_dark2">#cacaca</color>
+    <color name="transparent_light">#22ffffff</color>
+    <color name="transparent_light2">#55ffffff</color>
+    <color name="transparent_light3">#aaffffff</color>
+    <color name="transparent_full">#00ffffff</color>
+
+    <color name="shape_red">#ffe64141</color>
+    <color name="shape_red_pressed">#ba3333</color>
+
+    <color name="progressbar_red_fill">#ffe64141</color>
+    <color name="progressbar_blue_fill">#ff389acc</color>
+    <color name="progressbar_green_fill">#ff2bc713</color>
+    <color name="progressbar_empty">#ffeaeaea</color>
+
+    <color name="linepageindicator_background">#ffcfcfcf</color>
+    <color name="linepageindicator_selected">#ff2bc713</color>
+
+
+    <color name="dialog_title_color">#ff343434</color>
+    <color name="dialog_action_color">#ffbcbcbc</color>
+    <color name="popup_background">#ff313131</color>
+    <color name="popup_shadow">#7f181818</color>
+    <color name="popup_divider">#bdc2c8</color>
+    <color name="popup_text">#ffffff</color>
+
+
+    <color name="nav_main_background">#ffe5e5e5</color>
+    <color name="nav_main_text">#ff1f1f1f</color>
+    <color name="nav_list_items_background">#ffffffff</color>
+    <color name="nav_list_items_text">#ff474747</color>
+    <color name="nav_list_items_divider">#ffe7e7e7</color>
+    <color name="nav_list_items_high_lite">#ff343434</color>
+    <color name="nav_list_items_remove_high_lite">#ff343434</color>
+    <color name="nav_list_items_header_text">#ff747474</color>
+    <color name="nav_button_background">#fff4f4f4</color>
+    <color name="nav_item_text">#34495e</color>
+    <color name="nav_divider">#ffdbdbdb</color>
+    <color name="orange">#fff59e02</color>
+    <color name="orange_dark">#ffd38702</color>
+    <color name="nav_button_go_cloud_text">#ffffffff</color>
+
+
+    <color name="toast_warning_background">#fffffde6</color>
+    <color name="toast_error_background">#ffffeff2</color>
+    <color name="toast_information_background">#ffedf6ff</color>
+
+    <color name="ripple_effect">#2f000000</color>
+
+</resources>

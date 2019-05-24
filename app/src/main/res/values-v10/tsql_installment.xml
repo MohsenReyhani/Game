@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--language=SQLite-->
+    <string name="sql_Installment_Insert">
+        INSERT INTO Installment (
+            InstallmentId ,
+            GePaymentDate ,
+            FaPaymentDate ,
+            InstallmentAmount ,
+            DeferredAmount ,
+            LoanId  ,
+            Note  ,
+            PaymentStatus ,
+            WalletId ,
+            WalletName ,
+            CreatedAt ,
+            UpdatedAt ,
+            Editor ,
+            EditorDeviceId ,
+            Tag ,
+            RevId )
+        VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? ,? ,?,  ? , ? , ? , ?);
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Installment_Update">
+        UPDATE Installment SET
+            GePaymentDate = ?,
+            FaPaymentDate = ?,
+            InstallmentAmount = ?,
+            DeferredAmount = ?,
+            LoanId = ?,
+            Note = ?,
+            PaymentStatus = ?,
+            WalletId  = ?,
+            WalletName  = ?,
+            CreatedAt = ?,
+            UpdatedAt = ?,
+            Editor = ?,
+            EditorDeviceId = ?,
+            Tag = ?,
+            RevId = ?
+        WHERE InstallmentId = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Installment_CountItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Installment ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Installment_CountPayedItems">
+        SELECT
+        Count(*) as CountItems
+        FROM Installment
+        Where LoanId = ? And PaymentStatus > 0;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Installment_Next_Incoming_By_Loan_Id">
+        SELECT
+        *
+        FROM Installment
+        Where LoanId = ? And PaymentStatus = 0
+        Order By GePaymentDate ASC
+        Limit 1;
+
+    </string>
+
+    <!--language=SQLite-->
+
+
+    <!--language=SQLite-->
+     <string name="sql_Installment_SelectAll_By_LoanId">
+        SELECT
+            *
+        FROM Installment
+        Where LoanId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+
+    <!--language=SQLite-->
+    <string name="sql_Installment_SelectAll">
+        SELECT
+            *
+        FROM Installment ;
+
+    </string>
+
+
+    <!--language=SQLite-->
+    <string name="sql_Installment_SelectByInstallmentID">
+        SELECT
+            *
+        FROM Installment
+        Where InstallmentId = ? ;
+
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Installment_DeleteAll">
+        DELETE FROM Installment ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Installment_DeleteById">
+        DELETE FROM Installment Where InstallmentId = ? ;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Installment_DropTable">
+        DROP TABLE IF EXISTS Installment;
+    </string>
+
+    <!--language=SQLite-->
+    <string name="sql_Installment_CreateTable">
+        CREATE TABLE IF NOT EXISTS Installment (
+            InstallmentId   TEXT PRIMARY KEY,
+            GePaymentDate INTEGER,
+            FaPaymentDate TEXT,
+            InstallmentAmount INTEGER ,
+            DeferredAmount INTEGER ,
+            LoanId TEXT ,
+            Note TEXT ,
+            PaymentStatus INTEGER ,
+            WalletId TEXT,
+            WalletName TEXT,
+            CreatedAt INTEGER,
+            UpdatedAt INTEGER,
+            Editor TEXT,
+            EditorDeviceId TEXT,
+            Tag TEXT,
+            RevId TEXT
+        );
+    </string>
+</resources>
